@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="profile" href="https://gmpg.org/xfn/11">
+
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v21.1 (Yoast SEO v21.1) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Essas são as piores coisas que os personagens de The Walking Dead já fizeram - Observatório do Cinema</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C800&#038;ver=2.1.1&#038;family=Catamaran%3Awght%40400%3B500%3B600%3B700%3B800&#038;ver=2.1.1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C800&#038;ver=2.1.1&#038;family=Catamaran%3Awght%40400%3B500%3B600%3B700%3B800&#038;ver=2.1.1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C800&#038;ver=2.1.1&#038;family=Catamaran%3Awght%40400%3B500%3B600%3B700%3B800&#038;ver=2.1.1&#038;display=swap" /></noscript>
+	<meta name="description" content="Há anos, The Walking Dead se orgulha por retratar seus personagens da maneira mais fiel possível, mostrando como o ser humano age de maneira violenta em" />
+	<link rel="canonical" href="https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Essas são as piores coisas que os personagens de The Walking Dead já fizeram" />
+	<meta property="og:description" content="Há anos, The Walking Dead se orgulha por retratar seus personagens da maneira mais fiel possível, mostrando como o ser humano age de maneira violenta em" />
+	<meta property="og:url" content="https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/" />
+	<meta property="og:site_name" content="Observatório do Cinema" />
+	<meta property="article:published_time" content="2019-10-03T20:00:35+00:00" />
+	<meta property="article:modified_time" content="2019-10-03T20:00:48+00:00" />
+	<meta property="og:image" content="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1200&height=627&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="627" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Victor Gama" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Essas são as piores coisas que os personagens de The Walking Dead já fizeram" />
+	<meta name="twitter:description" content="Há anos, The Walking Dead se orgulha por retratar seus personagens da maneira mais fiel possível, mostrando como o ser humano age de maneira violenta em" />
+	<meta name="twitter:image" content="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1200&height=627&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#article","isPartOf":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/"},"author":{"name":"Victor Gama","@id":"https://observatoriodocinema.uol.com.br/#/schema/person/1acedca43bd9c2019f5fef1e58ae19ae"},"headline":"Essas são as piores coisas que os personagens de The Walking Dead já fizeram","datePublished":"2019-10-03T20:00:35+00:00","dateModified":"2019-10-03T20:00:48+00:00","mainEntityOfPage":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/"},"wordCount":554,"commentCount":0,"publisher":{"@id":"https://observatoriodocinema.uol.com.br/#organization"},"image":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#primaryimage"},"thumbnailUrl":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1920&height=1083&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg","keywords":["The Walking Dead"],"articleSection":["Indicações"],"inLanguage":"pt-BR","copyrightYear":"2019","copyrightHolder":{"@id":"https://observatoriodocinema.uol.com.br/#organization"}},{"@type":"WebPage","@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/","url":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/","name":"Essas são as piores coisas que os personagens de The Walking Dead já fizeram - Observatório do Cinema","isPartOf":{"@id":"https://observatoriodocinema.uol.com.br/#website"},"primaryImageOfPage":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#primaryimage"},"image":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#primaryimage"},"thumbnailUrl":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1920&height=1083&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg","datePublished":"2019-10-03T20:00:35+00:00","dateModified":"2019-10-03T20:00:48+00:00","description":"Há anos, The Walking Dead se orgulha por retratar seus personagens da maneira mais fiel possível, mostrando como o ser humano age de maneira violenta em","breadcrumb":{"@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#primaryimage","url":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1920&height=1083&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg","contentUrl":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=1920&height=1083&format=webp&quality=91&imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg","width":1920,"height":1083},{"@type":"BreadcrumbList","@id":"https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://observatoriodocinema.uol.com.br/"},{"@type":"ListItem","position":2,"name":"Indicações","item":"https://observatoriodocinema.uol.com.br/indicacoes/"},{"@type":"ListItem","position":3,"name":"Essas são as piores coisas que os personagens de The Walking Dead já fizeram"}]},{"@type":"WebSite","@id":"https://observatoriodocinema.uol.com.br/#website","url":"https://observatoriodocinema.uol.com.br/","name":"Observatório do Cinema","description":"Tudo sobre Filmes, Séries, Animes e muito mais da Cultura Pop. Fique por dentro das principais notícias e novidades de tudo que acontece no universo Nerd.","publisher":{"@id":"https://observatoriodocinema.uol.com.br/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://observatoriodocinema.uol.com.br/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https://observatoriodocinema.uol.com.br/#organization","name":"Observatório do Cinema","url":"https://observatoriodocinema.uol.com.br/","logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://observatoriodocinema.uol.com.br/#/schema/logo/image/","url":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=219&height=56&format=webp&quality=91&imagick=/wp-content/uploads/2023/06/logo-company-horizontal.png","contentUrl":"https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=219&height=56&format=webp&quality=91&imagick=/wp-content/uploads/2023/06/logo-company-horizontal.png","width":219,"height":56,"caption":"Observatório do Cinema"},"image":{"@id":"https://observatoriodocinema.uol.com.br/#/schema/logo/image/"}},{"@type":"Person","@id":"https://observatoriodocinema.uol.com.br/#/schema/person/1acedca43bd9c2019f5fef1e58ae19ae","name":"Victor Gama","image":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://observatoriodocinema.uol.com.br/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/cd804a3bed89d05bbf9fd0ea8fc97954?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/cd804a3bed89d05bbf9fd0ea8fc97954?s=96&d=mm&r=g","caption":"Victor Gama"},"sameAs":["https://observatoriodocinema.bol.uol.com.br/"],"url":"https://observatoriodocinema.uol.com.br/autor/victorgama/"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Feed para Observatório do Cinema &raquo;" href="https://observatoriodocinema.uol.com.br/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de Observatório do Cinema &raquo; Story" href="https://observatoriodocinema.uol.com.br/web-stories/feed/"><style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+<link rel='stylesheet' id='wp-block-library-css' href='https://observatoriodocinema.uol.com.br/wp-includes/css/dist/block-library/style.min.css?ver=6.3.2' media='all' />
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='publishers-addon-ads-css' href='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-publishers-addon-ads/assets/css/dist/style.css?ver=0.4.0-alpha.13' media='all' />
+<link rel='stylesheet' id='publishers-addon-social-medias-css' href='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-publishers-addon-social-medias/assets/css/dist/style.css?ver=0.3.1' media='' />
+<link rel='stylesheet' id='publishers-icons-css' href='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers/assets/css/libs/bootstrap-icons/bootstrap-icons.min.css?ver=1.10.3' media='' />
+<link rel='stylesheet' id='publishers-child-style-css' href='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers-child/assets/css/dist/style.css?ver=2.1.1' media='' />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://observatoriodocinema.uol.com.br/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script src='https://observatoriodocinema.uol.com.br/wp-includes/js/jquery/jquery.min.js?ver=3.7.0' id='jquery-core-js'></script>
+<script src='https://observatoriodocinema.uol.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://observatoriodocinema.uol.com.br/wp-json/" /><link rel="alternate" type="application/json" href="https://observatoriodocinema.uol.com.br/wp-json/wp/v2/posts/413471" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://observatoriodocinema.uol.com.br/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.3.2" />
+<link rel='shortlink' href='https://observatoriodocinema.uol.com.br/?p=413471' />
+<link rel="alternate" type="application/json+oembed" href="https://observatoriodocinema.uol.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fobservatoriodocinema.uol.com.br%2Findicacoes%2Fessas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://observatoriodocinema.uol.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fobservatoriodocinema.uol.com.br%2Findicacoes%2Fessas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram%2F&#038;format=xml" />
+			<!-- script Publisher GA 2.0 -->
+			<script type="rocketlazyloadscript">
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('event', 'addon_integracao_ga', {
+    "author": "victorgama",
+    "post_id": "413471",
+    "post_type": "post",
+    "updated_date": "03-10-2019",
+    "published_date": "03-10-2019",
+    "primary_category": "indicacoes",
+    "categories": [
+        "indicacoes"
+    ],
+    "co_authors": []
+});
+			</script>
+			<!-- End script Publisher GA 2.0 -->
+			<link rel="amphtml" href="https://observatoriodocinema.uol.com.br/indicacoes/essas-sao-as-piores-coisas-que-os-personagens-de-the-walking-dead-ja-fizeram/amp/">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+
+    (function () {
+
+        window.universal_variable = window.universal_variable || {};
+
+        window.universal_variable.dfp = window.universal_variable.dfp || {};
+
+        window.uolads = window.uolads || [];
+
+    })();
+
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="//tm.jsuol.com.br/uoltm.js?id=y8nfaf" async></script>
+<!-- 8nfaf axcrd0 -->
+<link rel="icon" href="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=32&#038;height=32&#038;format=webp&#038;quality=91&#038;imagick=/wp-content/uploads/2023/07/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=192&#038;height=192&#038;format=webp&#038;quality=91&#038;imagick=/wp-content/uploads/2023/07/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=180&#038;height=180&#038;format=webp&#038;quality=91&#038;imagick=/wp-content/uploads/2023/07/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=270&#038;height=270&#038;format=webp&#038;quality=91&#038;imagick=/wp-content/uploads/2023/07/cropped-favicon-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>		<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KT4LL7R');</script>
+<!-- End Google Tag Manager -->	</head>
+
+	<body class="post-template-default single single-post postid-413471 single-format-standard wp-custom-logo">
+		
+		
+<header>
+	<div class="header">
+				<div class="header-top">
+			<div class="py-2 py-md-3 px-0">
+				<div class="grid gap-2 align-items-center">
+					<div class="g-col-8 g-col-md-4 g-col-xl-3">
+						<div class="d-flex align-items-center flex-wrap gap-2">
+							<div class="header-menu">
+								<button class="btn btn-toggle-menu button-default-md d-flex align-items-center gap-2 p-0" aria-label="Menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSeox" aria-controls="offcanvasSeox">
+									<i class="bi bi-list fs-4"></i>
+								</button>
+							</div>
+
+							<div class="header-logo">
+																	<a href="https://observatoriodocinema.uol.com.br/" class="custom-logo-link" rel="home"><img width="219" height="56" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20219%2056'%3E%3C/svg%3E" class="custom-logo" alt="Observatório do Cinema" decoding="async" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=219&amp;height=56&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal.png" /><noscript><img width="219" height="56" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=219&amp;height=56&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal.png" class="custom-logo" alt="Observatório do Cinema" decoding="async" /></noscript></a>															</div>
+						</div>
+
+					</div>
+					<div class="g-col-4 g-col-md-8 g-col-xl-9 header-widget-right">
+													<section id="block-2" class="widget widget_block">
+<div class="widget-search" data-state="closed" data-order="order-left" data-responsive="">
+	<div class="search-body">
+
+		<button class="btn-search-open" title="Abrir busca">
+			<i class="bi bi-search"></i>
+		</button>
+
+		<form action="/" method="GET" class="search-submit-btn">
+
+		<input type="text" name="s" class="input-search" aria-label="Campo de pesquisa"
+			placeholder="Buscar" />
+
+			<button type=submit class="btn-search no-dark" title="Buscar">
+				<i class="bi bi-search" aria-hidden="true"></i>
+			</button>
+
+			<span class="btn-search-close text-gray-500" title="Fechar busca">
+				<i class="bi bi-x-lg"></i>
+			</span>
+
+		</form>
+	</div>
+</div>
+</section>												
+<div class="grid">
+	<nav id="featuredMenu" class="header-nav g-col-12 d-flex py-3 overflow-lg-hidden" style="white-space: nowrap">
+		<div class="menu-links"><ul><li><a title = "Últimas Notícias" href="https://observatoriodocinema.uol.com.br/ultimas-noticias/">Últimas Notícias</a></li>
+<li><a title = "Filmes" href="https://observatoriodocinema.uol.com.br/filmes/">Filmes</a></li>
+<li><a title = "Séries" href="https://observatoriodocinema.uol.com.br/series/">Séries</a></li>
+<li><a title = "Quadrinhos" href="https://observatoriodocinema.uol.com.br/quadrinhos/">Quadrinhos</a></li>
+<li><a title = "Streaming" href="https://observatoriodocinema.uol.com.br/streaming/">Streaming</a></li>
+<li><a title = "Studios" href="https://observatoriodocinema.uol.com.br/studio/">Studios</a></li>
+<li><a title = "Críticas" href="https://observatoriodocinema.uol.com.br/criticas/">Críticas</a></li>
+</ul></div>		<div class="header-nav-controls d-none d-md-flex gap-2 ms-4">
+			<button class="menu-control-prev btn btn-link p-0" title="arrow" aria-label="Botão Voltar">
+				<i class="bi bi-chevron-left"></i>
+			</button>
+			<button class="menu-control-next btn btn-link p-0" title="arrow" aria-label="Botão Avançar">
+				<i class="bi bi-chevron-right"></i>
+			</button>
+		</div>
+	</nav>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			</div>
+</header>
+
+<div class="offcanvas offcanvas-start sidebar" data-bs-scroll="true" tabindex="-1" id="offcanvasSeox">
+	<div class="offcanvas-header">
+		<a href="https://observatoriodocinema.uol.com.br/" class="custom-logo-link" title="Página inicial" rel="home"><img width="342" height="88" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20342%2088'%3E%3C/svg%3E" class="custom-logo" alt="Observatório do Cinema" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1.png 342w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1-300x77.png 300w" data-lazy-sizes="(max-width: 342px) 100vw, 342px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=342&amp;height=88&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal-1.png" /><noscript><img width="342" height="88" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=342&amp;height=88&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal-1.png" class="custom-logo" alt="Observatório do Cinema" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1.png 342w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1-300x77.png 300w" sizes="(max-width: 342px) 100vw, 342px" /></noscript></a>		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<hr class="mx-5 mb-3 mt-4">
+	<div class="offcanvas-body">
+		<div id="menu-cascade" class="menu-cascade"><ul><li><a title = "Home" href="/">Home</a></li>
+<li><a title = "Últimas Notícias" href="https://observatoriodocinema.uol.com.br/ultimas-noticias/">Últimas Notícias</a></li>
+<li><a title = "Filmes" href="https://observatoriodocinema.uol.com.br/filmes/">Filmes</a></li>
+<li><a title = "Séries" href="https://observatoriodocinema.uol.com.br/series/">Séries</a></li>
+<li><span>Streaming</span>
+<div class="subitems"><button>Voltar</button><ul>
+<li><a title = "Star+" href="https://observatoriodocinema.uol.com.br/star/">Star+</a></li>
+<li><a title = "Disney+" href="https://observatoriodocinema.uol.com.br/disney/">Disney+</a></li>
+<li><a title = "Netflix" href="https://observatoriodocinema.uol.com.br/netflix/">Netflix</a></li>
+<li><a title = "Prime Video" href="https://observatoriodocinema.uol.com.br/prime-video/">Prime Video</a></li>
+<li><a title = "HBO Max" href="https://observatoriodocinema.uol.com.br/hbo-max/">HBO Max</a></li>
+<li><a title = "Globoplay" href="https://observatoriodocinema.uol.com.br/globoplay/">Globoplay</a></li>
+<li><a title = "Paramount+" href="https://observatoriodocinema.uol.com.br/paramount/">Paramount+</a></li>
+<li><a title = "Apple TV+" href="https://observatoriodocinema.uol.com.br/apple-tv/">Apple TV+</a></li>
+</ul></div>
+</li>
+<li><a title = "Animes" href="https://observatoriodocinema.uol.com.br/animes/">Animes</a></li>
+<li><a title = "Documentários" href="https://observatoriodocinema.uol.com.br/documentarios/">Documentários</a></li>
+<li><a title = "Quadrinhos" href="https://observatoriodocinema.uol.com.br/quadrinhos/">Quadrinhos</a></li>
+<li><a title = "Celebridades" href="https://observatoriodocinema.uol.com.br/celebridades/">Celebridades</a></li>
+<li><span>Studios</span>
+<div class="subitems"><button>Voltar</button><ul>
+<li><a title = "Marvel" href="https://observatoriodocinema.uol.com.br/studio/marvel/">Marvel</a></li>
+<li><a title = "DC" href="https://observatoriodocinema.uol.com.br/studio/dc/">DC</a></li>
+</ul></div>
+</li>
+<li><span>Premiações</span>
+<div class="subitems"><button>Voltar</button><ul>
+<li><a title = "Oscar" href="https://observatoriodocinema.uol.com.br/premiacoes/oscar/">Oscar</a></li>
+<li><a title = "Emmy" href="https://observatoriodocinema.uol.com.br/premiacoes/emmy/">Emmy</a></li>
+<li><a title = "Globo de ouro" href="https://observatoriodocinema.uol.com.br/premiacoes/globo-de-ouro/">Globo de ouro</a></li>
+</ul></div>
+</li>
+<li><a title = "Críticas" href="https://observatoriodocinema.uol.com.br/criticas/">Críticas</a></li>
+</ul></div>	</div>
+	<div class="offcanvas-footer">
+				<div class="social-media-links d-flex">
+	<ul class="d-flex justify-content-end gap-3 align-items-center list-unstyled m-0">
+						<li>
+					<a target="_blank" rel="noreferrer" href="https://twitter.com/ObsCinema" class="d-flex" title="Acessar Twitter">
+						<svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.6008 2.11803C19.8725 2.44316 19.0891 2.66306 18.2675 2.76127C19.1063 2.25528 19.7501 1.45465 20.054 0.499094C19.269 0.967877 18.3993 1.30795 17.4744 1.49125C16.7334 0.696734 15.6776 0.200195 14.5085 0.200195C12.2655 0.200195 10.4463 2.03171 10.4463 4.28992C10.4463 4.61048 10.4824 4.92249 10.552 5.222C7.17599 5.0515 4.18258 3.42342 2.17889 0.948357C1.82929 1.55225 1.62873 2.25528 1.62873 3.00466C1.62873 4.42321 2.34642 5.67553 3.43581 6.40875C2.77024 6.3877 2.14344 6.20379 1.59602 5.89666C1.59571 5.91404 1.59571 5.93142 1.59571 5.9485C1.59571 7.93008 2.99654 9.58287 4.85451 9.95832C4.514 10.0523 4.1544 10.102 3.7845 10.102C3.52215 10.102 3.26798 10.0767 3.02017 10.0291C3.537 11.6535 5.03689 12.836 6.81488 12.8692C5.42436 13.9663 3.67302 14.6199 1.7693 14.6199C1.44212 14.6199 1.11797 14.6007 0.800781 14.5626C2.59756 15.7234 4.73333 16.4002 7.02725 16.4002C14.4991 16.4002 18.5853 10.1685 18.5853 4.76359C18.5853 4.58638 18.5813 4.40979 18.5735 4.23472C19.3678 3.65827 20.0564 2.93817 20.6008 2.11803Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.instagram.com/observatoriodocinema/" class="d-flex" title="Acessar Instagram">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.0004 0.399902C12.6087 0.399902 12.9342 0.409502 13.9575 0.457502C14.9799 0.505502 15.6759 0.665822 16.2884 0.903902C16.922 1.14774 17.4558 1.47798 17.9895 2.01078C18.4777 2.49068 18.8554 3.07119 19.0964 3.7119C19.3335 4.32342 19.4948 5.02038 19.5428 6.04278C19.5879 7.06614 19.6004 7.39158 19.6004 9.9999C19.6004 12.6082 19.5908 12.9337 19.5428 13.957C19.4948 14.9794 19.3335 15.6754 19.0964 16.2879C18.8561 16.929 18.4783 17.5096 17.9895 17.989C17.5095 18.477 16.929 18.8547 16.2884 19.0959C15.6769 19.333 14.9799 19.4943 13.9575 19.5423C12.9342 19.5874 12.6087 19.5999 10.0004 19.5999C7.39207 19.5999 7.06663 19.5903 6.04327 19.5423C5.02087 19.4943 4.32487 19.333 3.71239 19.0959C3.07142 18.8554 2.49082 18.4776 2.01127 17.989C1.52302 17.5092 1.14528 16.9287 0.904391 16.2879C0.666311 15.6764 0.505991 14.9794 0.457991 13.957C0.412871 12.9337 0.400391 12.6082 0.400391 9.9999C0.400391 7.39158 0.409991 7.06614 0.457991 6.04278C0.505991 5.01942 0.666311 4.32438 0.904391 3.7119C1.14462 3.07079 1.52244 2.49013 2.01127 2.01078C2.49095 1.52236 3.07152 1.1446 3.71239 0.903902C4.32487 0.665822 5.01991 0.505502 6.04327 0.457502C7.06663 0.412382 7.39207 0.399902 10.0004 0.399902ZM10.0004 5.1999C8.72735 5.1999 7.50645 5.70562 6.60628 6.60579C5.7061 7.50596 5.20039 8.72686 5.20039 9.9999C5.20039 11.2729 5.7061 12.4938 6.60628 13.394C7.50645 14.2942 8.72735 14.7999 10.0004 14.7999C11.2734 14.7999 12.4943 14.2942 13.3945 13.394C14.2947 12.4938 14.8004 11.2729 14.8004 9.9999C14.8004 8.72686 14.2947 7.50596 13.3945 6.60579C12.4943 5.70562 11.2734 5.1999 10.0004 5.1999ZM16.2404 4.9599C16.2404 4.64164 16.114 4.33642 15.8889 4.11137C15.6639 3.88633 15.3587 3.7599 15.0404 3.7599C14.7221 3.7599 14.4169 3.88633 14.1919 4.11137C13.9668 4.33642 13.8404 4.64164 13.8404 4.9599C13.8404 5.27816 13.9668 5.58339 14.1919 5.80843C14.4169 6.03347 14.7221 6.1599 15.0404 6.1599C15.3587 6.1599 15.6639 6.03347 15.8889 5.80843C16.114 5.58339 16.2404 5.27816 16.2404 4.9599ZM10.0004 7.1199C10.7642 7.1199 11.4968 7.42333 12.0369 7.96343C12.577 8.50354 12.8804 9.23608 12.8804 9.9999C12.8804 10.7637 12.577 11.4963 12.0369 12.0364C11.4968 12.5765 10.7642 12.8799 10.0004 12.8799C9.23657 12.8799 8.50403 12.5765 7.96392 12.0364C7.42382 11.4963 7.12039 10.7637 7.12039 9.9999C7.12039 9.23608 7.42382 8.50354 7.96392 7.96343C8.50403 7.42333 9.23657 7.1199 10.0004 7.1199Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.facebook.com/ObservatorioDoCinema" class="d-flex" title="Acessar Facebook">
+						<svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0008 0C5.36756 0 0.800781 4.58587 0.800781 10.2427C0.800781 15.3162 4.4781 19.5179 9.29968 20.3316V12.3796H6.83912V9.51802H9.29968V7.408C9.29968 4.95976 10.7888 3.62562 12.964 3.62562C14.0058 3.62562 14.9011 3.70357 15.161 3.7379V6.29696L13.6523 6.2977C12.4696 6.2977 12.2416 6.86195 12.2416 7.69025V9.51655H15.0636L14.6956 12.3781H12.2416V20.4C17.2883 19.7832 21.2008 15.4745 21.2008 10.2398C21.2008 4.58587 16.634 0 11.0008 0Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCtZeQR-4AN6LCNBT1hpNadw" class="d-flex" title="Acessar Youtube">
+						<svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.4464 25.0908C28.6261 24.7731 29.5564 23.8433 29.8739 22.6636C30.464 20.509 30.4413 16.0177 30.4413 16.0177C30.4413 16.0177 30.4413 11.5494 29.8741 9.39455C29.5564 8.21512 28.6264 7.28507 27.4464 6.96763C25.2911 6.40039 16.6699 6.40039 16.6699 6.40039C16.6699 6.40039 8.07113 6.40039 5.89329 6.9901C4.71338 7.30776 3.78332 8.23781 3.46559 9.41724C2.89844 11.5494 2.89844 16.0404 2.89844 16.0404C2.89844 16.0404 2.89844 20.509 3.46559 22.6636C3.78311 23.8431 4.73607 24.7958 5.89308 25.1132C8.04843 25.6805 16.6697 25.6805 16.6697 25.6805C16.6697 25.6805 25.2911 25.6805 27.4464 25.0908ZM20.9552 16.0411L13.9164 11.9096V20.1725L20.9552 16.0411Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="/feed" class="d-flex" title="Acessar Feed">
+						<svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.89922 0.199219C3.05053 0.199219 2.23659 0.536361 1.63648 1.13648C1.03636 1.73659 0.699219 2.55053 0.699219 3.39922L0.699219 22.5992C0.699219 23.4479 1.03636 24.2618 1.63648 24.862C2.23659 25.4621 3.05053 25.7992 3.89922 25.7992H23.0992C23.9479 25.7992 24.7618 25.4621 25.362 24.862C25.9621 24.2618 26.2992 23.4479 26.2992 22.5992V3.39922C26.2992 2.55053 25.9621 1.73659 25.362 1.13648C24.7618 0.536361 23.9479 0.199219 23.0992 0.199219L3.89922 0.199219ZM6.29922 4.19922C15.136 4.19922 22.2992 11.3624 22.2992 20.1992C22.2992 20.6236 22.1306 21.0305 21.8306 21.3306C21.5305 21.6306 21.1236 21.7992 20.6992 21.7992C20.2749 21.7992 19.8679 21.6306 19.5678 21.3306C19.2678 21.0305 19.0992 20.6236 19.0992 20.1992C19.0992 16.8044 17.7507 13.5487 15.3502 11.1483C12.9497 8.74779 9.69399 7.39922 6.29922 7.39922C5.87487 7.39922 5.46791 7.23065 5.16785 6.93059C4.86779 6.63053 4.69922 6.22357 4.69922 5.79922C4.69922 5.37487 4.86779 4.96791 5.16785 4.66785C5.46791 4.36779 5.87487 4.19922 6.29922 4.19922ZM6.29922 10.5992C8.8453 10.5992 11.2871 11.6106 13.0874 13.411C14.8878 15.2113 15.8992 17.6531 15.8992 20.1992C15.8992 20.6236 15.7306 21.0305 15.4306 21.3306C15.1305 21.6306 14.7236 21.7992 14.2992 21.7992C13.8749 21.7992 13.4679 21.6306 13.1678 21.3306C12.8678 21.0305 12.6992 20.6236 12.6992 20.1992C12.6992 18.5018 12.0249 16.874 10.8247 15.6737C9.62447 14.4735 7.9966 13.7992 6.29922 13.7992C5.87487 13.7992 5.46791 13.6306 5.16785 13.3306C4.86779 13.0305 4.69922 12.6236 4.69922 12.1992C4.69922 11.7749 4.86779 11.3679 5.16785 11.0678C5.46791 10.7678 5.87487 10.5992 6.29922 10.5992ZM7.09922 21.7992C6.4627 21.7992 5.85225 21.5464 5.40216 21.0963C4.95208 20.6462 4.69922 20.0357 4.69922 19.3992C4.69922 18.7627 4.95208 18.1523 5.40216 17.7022C5.85225 17.2521 6.4627 16.9992 7.09922 16.9992C7.73574 16.9992 8.34619 17.2521 8.79628 17.7022C9.24636 18.1523 9.49922 18.7627 9.49922 19.3992C9.49922 20.0357 9.24636 20.6462 8.79628 21.0963C8.34619 21.5464 7.73574 21.7992 7.09922 21.7992Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+					</ul>
+</div>
+	</div>
+</div>
+
+<main id="post-413471" class="single mb-10 mb-md-12">
+
+	
+<div class="spaa-container d-flex d-md-none no-bg no-label ls-100 "
+	style="">
+		<div class="spaa-item"><div id="header-mobile">
+
+<script type="rocketlazyloadscript">
+if (window?.screen?.width <= 768) { // mobile
+window.uolads.push({ id: "header-mobile" });
+}
+</script>
+
+</div></div></div>
+		<div class="spaa-container d-none d-md-flex d-flex justify-content-center ls-250 no-bg no-label"
+	style="">
+		<div class="spaa-item"><div id="header-desktop">
+
+<script type="rocketlazyloadscript">
+if (window?.screen?.width > 768) { // desktop
+window.uolads.push({ id: "header-desktop" });
+}
+</script>
+
+</div></div></div>
+		<section class="single-header mt-4 mt-md-7 mb-6 mb-md-7" >
+	<div class="container px-4 px-md-0">
+		<p id="breadcrumbs" class="single-breadcrumb mb-5  " style="white-space: nowrap"><span class="d-flex gap-3 align-items-center flex-wrap"><span><a class="text-decoration-none hover hover-text-opacity-75 content-bread-light text-gray-700"  href="https://observatoriodocinema.uol.com.br/">Home</a></span> <i class="bi bi-chevron-right fs-7 text-gray-700"></i> <strong><a class="text-decoration-none hover hover-text-opacity-75 content-bread text-primary"  href="https://observatoriodocinema.uol.com.br/indicacoes/">Indicações</a></strong></span></p>
+		<div class="single-head border-bottom border-gray-300 grid pb-md-7 pb-5">
+			<strong class="g-col-12">
+				<p class="post-hat-content content-hat text-secondary mb-2">Indicações</p>
+				<h1 class="content-title text-white text-opacity-80 m-0">
+					Essas são as piores coisas que os personagens de The Walking Dead já fizeram				</h1>
+
+							</strong>
+		</div>
+		<div class="single-head-bottom pt-3 grid align-content-center">
+			<div class="g-col-12 g-col-lg-4 single-head-bottom-left d-flex align-items-center justify-content-start">
+				
+<ul class="single-authors g-col-12 g-col-lg-4 d-flex gap-4 align-items-center list-unstyled mb-0 flex-nowrap overflow-scroll overflow-sm-hidden m-negative-1 m-sm-0 px-4 p-sm-0">
+		<li class="single-author-item flex-grow-0 flex-shrink-0 flex-sm-fill mb-4 mb-xl-0">
+		<div class="py-1 px-3 px-md-0 rounded bg-gray-500 bg-opacity-20 bg-sm-none d-flex gap-3 align-items-center">
+			<a href="https://observatoriodocinema.uol.com.br/autor/victorgama/" title="Victor Gama">
+				<figure class="border border-2 border-primary rounded-circle overflow-hidden m-0">
+					<img width="48" height="48" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3E%3C/svg%3E" class="img-fluid  aspect-1x1 fit-cover rounded-circle filter-gray-1" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=48&amp;height=48&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/07/featured-img-default-96x96.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=48&amp;height=48&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/07/featured-img-default-96x96.jpg" /><noscript><img width="48" height="48" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=48&amp;height=48&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/07/featured-img-default-96x96.jpg" class="img-fluid  aspect-1x1 fit-cover rounded-circle filter-gray-1" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=48&amp;height=48&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/07/featured-img-default-96x96.jpg 1200w" sizes="100vw" /></noscript>				</figure>
+			</a>
+			<div class="single-author-body gap-2 d-flex flex-column">
+				<div class="d-flex">
+					<a href="https://observatoriodocinema.uol.com.br/autor/victorgama/" title="Victor Gama" class="text-decoration-none">
+						<p class="hover content-author text-gray-500 hover-text-opacity-75 m-0">
+							Victor Gama						</p>
+					</a>
+				</div>
+							</div>
+		</div>
+	</li>
+	</ul>
+			</div>
+			<div class="g-col-12 g-col-lg-4 single-head-bottom-center d-flex align-items-center justify-content-start justify-content-md-center">
+				
+<time class="text-gray-500 content-info-post mb-0 me-3" datetime="2019-10-03T17:10:35UTC0">
+			<i class="bi bi-megaphone-fill text-primary me-2"></i>
+		03/10/2019 17:00</time>
+
+<time class="text-gray-500 content-info-post mb-0" datetime="2019-10-03T17:10:48UTC0">
+			<i class="bi bi-clock text-primary me-2"></i>
+		03/10/2019 17:00</time>
+				</div>
+			<div class="g-col-12 g-col-lg-4 single-head-bottom-right d-flex align-items-center justify-content-center justify-content-md-end pt-md-0 pt-5 mt-3 mt-md-0">
+				
+<button class="btn-social-share-generic d-flex align-items-center btn btn-outline-primary gap-2" title="Compartilhar" id="btnSocialShareGeneric">
+	<i class="bi bi-share-fill"></i>
+	<span class="btn-social-share-generic-text">Compartilhar</span>
+</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+	
+<section class="single-body container-xl px-4 px-xl-0 mt-6 mt-md-7">
+	<div class="grid">
+		
+		
+<article class="g-col-12 g-col-lg-8" >
+	
+			<section class="single-body-thumbnail m-negative-1 m-md-0">
+			<figure class="wp-caption alignnone img-fluid"><img width="904" height="508" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20904%20508'%3E%3C/svg%3E" class="img-fluid w-100" alt="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=375&amp;height=256&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=904&amp;height=508&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg 1200w" data-lazy-sizes="100vw" fetchpriority="high" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=904&amp;height=508&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" /><noscript><img width="904" height="508" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=904&amp;height=508&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" class="img-fluid w-100" alt="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=375&amp;height=256&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=904&amp;height=508&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg 1200w" sizes="100vw" fetchpriority="high" /></noscript><figcaption class="wp-caption-text">https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/08/cropped-skdfmeiieieieie-1.jpg</figcaption></figure>		</section>
+	
+	<div class="single-content">
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>
+</head><body><p>H&aacute; anos, The Walking Dead se orgulha por retratar seus personagens da maneira mais fiel poss&iacute;vel, mostrando como o ser humano age de maneira violenta em um apocalipse zumbi. </p>
+
+
+
+<p>Gra&ccedil;as &agrave; isso, os protagonistas de The Walking Dead realizaram feitos terr&iacute;veis, dignos de vil&otilde;es cru&eacute;is e s&aacute;dicos.</p>
+
+
+
+<p>O ScreenRant listou as piores coisas que os principais personagens de The Walking Dead j&aacute; fizeram.</p></div>
+<section class="grid related-posts container-xl px-0 mt-9 mt-md-10 mb-7 pb-4">
+		
+<div class="g-col-12 grid section-heading-default heading-size-sm ">
+	<div class="g-col-12 px-4 pb-3 pb-lg-4 heading-section rounded d-flex justify-content-between align-items-center gap-2">
+		<p class="mb-0 text-uppercase heading-title-md">
+			LEIA TAMB&Eacute;M		</p>
+			</div>
+</div>
+	<div class="grid g-col-12 col-12 col-md-9">
+					
+<article class="feed feed-md-v2 g-col-12 g-col-lg-6 no-excerpt ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/prime-video-lanca-comedia-romantica-perfeita-para-fas-de-after/" title="Prime Video lan&ccedil;a com&eacute;dia rom&acirc;ntica perfeita para f&atilde;s de After">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-1x1 h-auto fit-cover" alt="A Outra Zoey" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/a-outra-zoey-1-96x96.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/a-outra-zoey-1-96x96.jpg"><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/a-outra-zoey-1-96x96.jpg" class="aspect-1x1 h-auto fit-cover" alt="A Outra Zoey" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/a-outra-zoey-1-96x96.jpg 1200w" sizes="100vw"></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Lan&ccedil;amento</p>			<h2 class="feed-title feed-title-md">Prime Video lan&ccedil;a com&eacute;dia rom&acirc;ntica perfeita para f&atilde;s de After</h2>
+			<div class="feed-hook">
+							</div>
+		</div>
+	</a>
+</article>
+					
+<article class="feed feed-md-v2 g-col-12 g-col-lg-6 no-excerpt ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/muito-neon-e-cyberpunk-netflix-lanca-novo-anime-do-criador-de-castlevania/" title="Muito neon e cyberpunk: Netflix lan&ccedil;a novo anime do criador de Castlevania">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-1x1 h-auto fit-cover" alt="Capit&atilde;o Laserhawk: Remix Blood Dragon" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/capitao-laserhawk-remix-blood-dragon-96x96.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/capitao-laserhawk-remix-blood-dragon-96x96.jpg"><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/capitao-laserhawk-remix-blood-dragon-96x96.jpg" class="aspect-1x1 h-auto fit-cover" alt="Capit&atilde;o Laserhawk: Remix Blood Dragon" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/capitao-laserhawk-remix-blood-dragon-96x96.jpg 1200w" sizes="100vw"></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Ca&oacute;tico</p>			<h2 class="feed-title feed-title-md">Muito neon e cyberpunk: Netflix lan&ccedil;a novo anime do criador de Castlevania</h2>
+			<div class="feed-hook">
+							</div>
+		</div>
+	</a>
+</article>
+			</div>
+</section>
+<div class="single-content">
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1690" height="950" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201690%20950'%3E%3C/svg%3E" alt="" class="wp-image-409527" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7.jpg 1690w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-696x391.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-1068x600.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-747x420.jpg 747w" data-lazy-sizes="(max-width: 1690px) 100vw, 1690px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7.jpg"><noscript><img decoding="async" width="1690" height="950" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7.jpg" alt="" class="wp-image-409527" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7.jpg 1690w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-696x391.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-1068x600.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/cropped-Andrew-Lincoln-as-Rick-Grimes-in-The-Walking-Dead-1-1-7-747x420.jpg 747w" sizes="(max-width: 1690px) 100vw, 1690px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Rick: Ignorar o &ldquo;homem da mochila laranja&rdquo;</h1>
+
+
+
+<p>Rick Grimes fez muitas coisas terr&iacute;veis em The Walking Dead, mas ignorar um homem pedindo ajuda na estrada &ndash; que acaba morto por zumbis depois &ndash; foi certamente a coisa mais cruel que o protagonista fez. Para piorar, seu filho Carl estava no carro assistindo enquanto Rick ignorava uma pessoa que pedia ajuda.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1200" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3C/svg%3E" alt="" class="wp-image-405712" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl.jpg 1200w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-696x464.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-1068x712.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-630x420.jpg 630w" data-lazy-sizes="(max-width: 1200px) 100vw, 1200px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/09/The-Walking-Dead-Daryl.jpg"><noscript><img decoding="async" width="1200" height="800" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/09/The-Walking-Dead-Daryl.jpg" alt="" class="wp-image-405712" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl.jpg 1200w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-696x464.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-1068x712.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/09/The-Walking-Dead-Daryl-630x420.jpg 630w" sizes="(max-width: 1200px) 100vw, 1200px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Daryl: Causar a morte de Glenn</h1>
+
+
+
+<p>Daryl &eacute; conhecido por sua impulsividade em The Walking Dead e isso sempre causa problemas para o grupo de sobreviventes. No primeiro epis&oacute;dio da 7&ordf; temporada, Daryl agride Negan &ndash; depois que ele mata Abraham &ndash; o que faz com que o vil&atilde;o se enfure&ccedil;a ainda mais e acabe matando Glenn tamb&eacute;m. </p>
+
+
+
+<p>Se Daryl tivesse ficado quieto, Glenn ainda estaria vivo em The Walking Dead.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="738" height="375" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20375'%3E%3C/svg%3E" alt="" class="wp-image-342528" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9.jpg 738w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9-696x354.jpg 696w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9.jpg"><noscript><img decoding="async" width="738" height="375" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9.jpg" alt="" class="wp-image-342528" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9.jpg 738w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/Ezekiel-Carol-TWD-The-Walking-Dead-S9-696x354.jpg 696w" sizes="(max-width: 738px) 100vw, 738px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Carol: Casamento com Ezekiel</h1>
+
+
+
+<p>O romance Carol/Ezekiel nunca foi bem aceito pelos f&atilde;s de The Walking Dead. Depois de oito temporadas cometendo os mais terr&iacute;veis atos para proteger seu grupo, Carol os abandona para viver uma &ldquo;vida de mentira&rdquo; com Ezekiel. Esse ato simplesmente n&atilde;o combinou com a personagem estabelecida em Carol.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1200" height="675" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20675'%3E%3C/svg%3E" alt="" class="wp-image-372358" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne.jpg 1200w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-696x392.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-1068x601.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-747x420.jpg 747w" data-lazy-sizes="(max-width: 1200px) 100vw, 1200px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/07/Michonne.jpg"><noscript><img decoding="async" width="1200" height="675" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/07/Michonne.jpg" alt="" class="wp-image-372358" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne.jpg 1200w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-696x392.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-1068x601.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/Michonne-747x420.jpg 747w" sizes="(max-width: 1200px) 100vw, 1200px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Michonne: Abandonar as outras comunidades</h1>
+
+
+
+<p>Traumatizada com a &ldquo;morte&rdquo; de Rick em The Walking Dead, Michonne decide isolar Alexandria de todas as outras comunidades. Esse ato foi totalmente contra o que Rick e Carl queriam, j&aacute; que ambos sonhavam com todas as comunidades unidas. O ato de Michonne foi justific&aacute;vel, mas n&atilde;o deixa de ser totalmente errado.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="2070" height="1380" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202070%201380'%3E%3C/svg%3E" alt="" class="wp-image-321100" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp.jpg 2070w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-696x464.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-1068x712.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-630x420.jpg 630w" data-lazy-sizes="(max-width: 2070px) 100vw, 2070px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp.jpg"><noscript><img decoding="async" width="2070" height="1380" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp.jpg" alt="" class="wp-image-321100" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp.jpg 2070w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-696x464.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-1068x712.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/04/18-11-05-judith-walking-dead-hp-630x420.jpg 630w" sizes="(max-width: 2070px) 100vw, 2070px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Judith: Colocar o grupo em perigo</h1>
+
+
+
+<p>Judith finalmente ganhou destaque na 9&ordf; temporada de The Walking Dead e nesse tempo a personagem se mostrou t&atilde;o impulsiva quanto seu falecido irm&atilde;o Carl. Em quase todos os epis&oacute;dios em que aparece, Judith vai em miss&otilde;es irrespons&aacute;veis e coloca os outros membros de Alexandria em perigo.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="798" height="407" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20798%20407'%3E%3C/svg%3E" alt="" class="wp-image-264056" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9.jpg 798w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-80x41.jpg 80w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-700x357.jpg 700w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-696x355.jpg 696w" data-lazy-sizes="(max-width: 798px) 100vw, 798px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9.jpg"><noscript><img decoding="async" width="798" height="407" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9.jpg" alt="" class="wp-image-264056" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9.jpg 798w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-80x41.jpg 80w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-700x357.jpg 700w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2018/11/Jeffrey-Dean-Morgan-as-Negan-in-The-Walking-Dead-Season-9-696x355.jpg 696w" sizes="(max-width: 798px) 100vw, 798px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Negan: Fingir ser bonzinho</h1>
+
+
+
+<p>Sim, Negan matou Glenn, Abraham e mais uma dezena de pessoas. Ele &eacute; o vil&atilde;o mais terr&iacute;vel de The Walking Dead. Mesmo assim, seu pior ato &eacute; a pr&oacute;pria hipocrisia do personagem, que ainda se acha uma pessoa boa &ndash; que est&aacute; em busca de reden&ccedil;&atilde;o &ndash; mesmo depois de todas as monstruosidades que cometeu.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1600" height="720" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20720'%3E%3C/svg%3E" alt="" class="wp-image-337829" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd.jpg 1600w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-696x313.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-1068x481.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-933x420.jpg 933w" data-lazy-sizes="(max-width: 1600px) 100vw, 1600px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd.jpg"><noscript><img decoding="async" width="1600" height="720" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd.jpg" alt="" class="wp-image-337829" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd.jpg 1600w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-696x313.jpg 696w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-1068x481.jpg 1068w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/05/the-walking-dead-season-9-b-alpha-morton-1600x720-twd-933x420.jpg 933w" sizes="(max-width: 1600px) 100vw, 1600px"></noscript></figure>
+
+
+
+<h1 class="wp-block-heading">Alpha: Maltratar seu marido e filha</h1>
+
+
+
+<p>Alpha n&atilde;o &eacute; s&aacute;dica como Negan, mas sua frieza torna ela uma das vil&atilde;s mais terr&iacute;veis de The Walking Dead. Ao longo da nona temporada, a s&eacute;rie mostra flashbacks que revelam como a l&iacute;der dos Sussurradores torturava fisica e psicologicamente seu marido e sua filha, Lydia. </p>
+
+
+
+<p>Alpha &eacute; t&atilde;o cruel que chega ao ponto de matar seu pr&oacute;prio marido quando o apocalipse zumbi come&ccedil;a, o que s&oacute; mostra como ela &eacute; uma das vil&atilde;s mais implac&aacute;veis de The Walking Dead.</p>
+
+
+
+<p>The Walking Dead retorna em 6 de outubro com sua 10&ordf; temporada.</p>
+</body></html>
+	</div>
+	
+<div class="tax-links tax-mix-links container-xl px-4 px-lg-0">
+	<div class="d-flex mb-3">
+		<span class="button-default-lg text-primary m-0">Assuntos</span>
+	</div>
+	<div class="grid gap-row-2 gap-lg-4">
+		<div class="g-col-12 g-col-lg-9 g-col-xl-10">
+			<ul class="m-0 d-flex flex-wrap align-items-center justify-content-start gap-2 gap-md-3 list-unstyled">
+									<li class="m-0 d-flex">
+						<a class="btn btn-outline-primary btn-sm" href="https://observatoriodocinema.uol.com.br/indicacoes/" title="Indicações">
+							Indicações						</a>
+					</li>
+									<li class="m-0 d-flex">
+						<a class="btn btn-outline-primary btn-sm" href="https://observatoriodocinema.uol.com.br/tag/the-walking-dead/" title="The Walking Dead">
+							The Walking Dead						</a>
+					</li>
+							</ul>
+		</div>
+	</div>
+</div>
+<div class="spaa-container d-none d-md-flex justify-content-center no-bg no-label"
+	style="">
+		
+<div data-is-gpt=""
+	data-print="at_each"
+	data-pos-start="3"
+	data-pos="2" data-callback="single_content_ads"
+	data-min-char="100">
+	<script type="rocketlazyloadscript">
+	(function() {
+		let adsCounter = window.single_content_ads_counter || 0;
+		const singleContentAds = "single_content_ads_" + (++adsCounter);
+		window[singleContentAds] = function(index) {
+			let output = "<div class='spaa-item'><div id=\"middle-content-{index}-desktop\" class=\"d-none d-md-flex justify-content-center\">\r\n<script>        \r\nif (window?.screen?.width > 768) { \/\/ desktop\r\n  window.uolads.push({ id: \"middle-content-{index}-desktop\" }); \r\n}      <\/script>\r\n<\/div><\/div>";
+			output = output.replace(/\{index\}/g, index);
+			const adClientIdSuffixRegex = /ad-client-id-suffix="([^"]+)"/;
+			const match = output.match(adClientIdSuffixRegex);
+			if (match && match[1]) {
+				const adClientIdSuffixValue = match[1];
+				output = output.replace(/id="\d+"/g, `id="${adClientIdSuffixValue}"`);
+			}
+			return output;
+		};
+		window.single_content_ads_counter = adsCounter;
+	})();
+	</script>
+</div>
+</div>
+		<div class="spaa-container d-flex d-md-none no-bg no-label"
+	style="">
+		
+<div data-is-gpt=""
+	data-print="at_each"
+	data-pos-start="3"
+	data-pos="2" data-callback="single_content_ads"
+	data-min-char="100">
+	<script type="rocketlazyloadscript">
+	(function() {
+		let adsCounter = window.single_content_ads_counter || 0;
+		const singleContentAds = "single_content_ads_" + (++adsCounter);
+		window[singleContentAds] = function(index) {
+			let output = "<div class='spaa-item'><div id=\"middle-content-{index}-mobile\" class=\"mt-3 mb-3 d-flex d-md-none justify-content-center\">\r\n<script> \r\nif (window?.screen?.width <= 768) { \/\/ mobile\r\n         window.uolads.push({ id: \"middle-content-{index}-mobile\" }); \r\n}      <\/script>\r\n<\/div><\/div>";
+			output = output.replace(/\{index\}/g, index);
+			const adClientIdSuffixRegex = /ad-client-id-suffix="([^"]+)"/;
+			const match = output.match(adClientIdSuffixRegex);
+			if (match && match[1]) {
+				const adClientIdSuffixValue = match[1];
+				output = output.replace(/id="\d+"/g, `id="${adClientIdSuffixValue}"`);
+			}
+			return output;
+		};
+		window.single_content_ads_counter = adsCounter;
+	})();
+	</script>
+</div>
+</div>
+		<div class="spaa-container  no-bg no-label"
+	style="">
+		
+<div data-is-gpt=""
+	data-print="at_position"
+	data-pos-start="1"
+	data-pos="1" data-callback="single_content_ads"
+	data-min-char="250">
+	<script type="rocketlazyloadscript">
+	(function() {
+		let adsCounter = window.single_content_ads_counter || 0;
+		const singleContentAds = "single_content_ads_" + (++adsCounter);
+		window[singleContentAds] = function(index) {
+			let output = "<div class='spaa-item'><div id=\"uolpd-video-inarticle\"><\/div>\r\n<\/div>";
+			output = output.replace(/\{index\}/g, index);
+			const adClientIdSuffixRegex = /ad-client-id-suffix="([^"]+)"/;
+			const match = output.match(adClientIdSuffixRegex);
+			if (match && match[1]) {
+				const adClientIdSuffixValue = match[1];
+				output = output.replace(/id="\d+"/g, `id="${adClientIdSuffixValue}"`);
+			}
+			return output;
+		};
+		window.single_content_ads_counter = adsCounter;
+	})();
+	</script>
+</div>
+</div>
+		</article>
+
+		
+<aside class="single-sidebar g-col-12 g-col-lg-4 g-col-xl-3 g-start-xl-10">
+	<div class="single-sidebar-relative">
+						
+<div class="most-read-posts mt-10 mb-12 g-col-12 col-12 col-md-8 mx-auto">
+
+	
+	
+<div class="g-col-12 grid section-heading-default heading-size-md ">
+	<div class="g-col-12 px-4 pb-3 pb-lg-4 heading-section rounded d-flex justify-content-between align-items-center gap-2">
+		<p class="heading-title-sm text-gray-700 m-0">
+			As mais lidas		</p>
+			</div>
+</div>
+
+	<div class="most-read-posts-list g-col-12 d-flex flex-nowrap flex-md-wrap gap-row-5 gap-column-4 m-negative-1 mx-md-0 px-4 px-md-0 overflow-auto overflow-md-hidden">
+
+		
+<article class="feed feed-sm-v1 col-10 col-md-12 no-excert ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/o-filme-de-harry-potter-que-voce-nem-sabia-que-existia-esta-no-hbo-max/" title="O filme de Harry Potter que você nem sabia que existia está no HBO Max">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="182" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20182'%3E%3C/svg%3E" class="aspect-16x9 h-auto fit-cover" alt="Animais Fantásticos: Uma História Natural." decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/p0bpqpn6-768x432.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/p0bpqpn6-768x432.jpg" /><noscript><img width="324" height="182" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/p0bpqpn6-768x432.jpg" class="aspect-16x9 h-auto fit-cover" alt="Animais Fantásticos: Uma História Natural." decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/p0bpqpn6-768x432.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-sm feed-hat">Imperdível</p>			<h2 class="feed-title feed-title-sm">O filme de Harry Potter que você nem sabia que existia está no HBO Max</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-md line-clamp-4">Saiba tudo sobre Animais Fantásticos: Uma História Natural</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-sm-v3 col-10 col-md-12 no-excert ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/lupin-6-fatos-que-voce-nao-sabia-sobre-omar-sy/" title="Lupin: 6 fatos que você não sabia sobre Omar Sy">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Omar Sy na 3ª temporada de Lupin." decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU-96x96.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU-96x96.jpg" /><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU-96x96.jpg" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Omar Sy na 3ª temporada de Lupin." decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/AAAAQRCp9rD926QaP2ow4b6gC8cPcQ0-CnaAP4w4cbLCczmtI_mtw0W8WH925eQupKNFrVkmZHM1GsEKewFjzOB1vSDspe5823Kbci9bvHMLnSDm3wy5sI8jLESy_K77NXBqw4ADMDxX4s96G_IW42DiKOoU-96x96.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Curiosidades</p>			<h2 class="feed-title feed-title-sm">Lupin: 6 fatos que você não sabia sobre Omar Sy</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-md line-clamp-4">O ator francês Omar Sy é o protagonista de Lupin</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-sm-v3 col-10 col-md-12 no-excert ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/os-10-filmes-mais-assistidos-da-netflix/" title="Os 10 filmes mais assistidos da Netflix">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Chris Hemsworth em Resgate 2" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor-150x150.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor-150x150.jpg" /><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor-150x150.jpg" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Chris Hemsworth em Resgate 2" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/Extraction-2-Succeed-Predecessor-150x150.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Populares</p>			<h2 class="feed-title feed-title-sm">Os 10 filmes mais assistidos da Netflix</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-md line-clamp-4">Relembre os maiores sucessos de audiência do streaming</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-sm-v3 col-10 col-md-12 no-excert ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/streaming/netflix/camaleoes-final-explicado-do-surpreendente-suspense-da-netflix/" title="Camaleões: Final explicado do surpreendente suspense da Netflix">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Camaleões." decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5.jpeg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5-96x96.jpeg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5-96x96.jpeg" /><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5-96x96.jpeg" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Camaleões." decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5.jpeg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/Reptile-5-96x96.jpeg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Contém spoilers</p>			<h2 class="feed-title feed-title-sm">Camaleões: Final explicado do surpreendente suspense da Netflix</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-md line-clamp-4">Confira quem matou Summer no thriller Camaleões</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-sm-v3 col-10 col-md-12 no-excert ">
+	<a class="feed-link" href="https://observatoriodocinema.uol.com.br/indicacoes/6-remakes-de-filmes-classicos-que-ninguem-pediu/" title="6 remakes de filmes clássicos que ninguém pediu">
+		<figure class="feed-figure hover-overlay">
+			<img width="96" height="96" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Cena de A Múmia (2017)" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_-96x96.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_-96x96.jpg" /><noscript><img width="96" height="96" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_-96x96.jpg" class="aspect-16x9 aspect-md-1x1 h-auto fit-cover" alt="Cena de A Múmia (2017)" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=96&amp;height=96&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/MV5BMjI3NDY1MDU2M15BMl5BanBnXkFtZTgwMzgzNjc3MDI@._V1_-96x96.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-md" aria-label="hidden"><i class="feed-icon bi"></i></p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-md feed-hat">Fracassos</p>			<h2 class="feed-title feed-title-sm">6 remakes de filmes clássicos que ninguém pediu</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-md line-clamp-4">Relembre os remakes mais desnecessários do cinema</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+	</div>
+
+	
+</div>
+
+	</div>
+	<div class="single-sidebar-sticky position-sticky top-12">
+						<div class="spaa-container d-none d-md-flex d-flex justify-content-center no-bg no-label"
+	style="">
+		<div class="spaa-item"><div id="aside-1-desktop" class="mt-3 mb-3  " >
+<script type="rocketlazyloadscript">
+if (window?.screen?.width > 768) { // desktop
+window.uolads.push({ id: "aside-1-desktop" });
+}</script>
+</div></div></div>
+			</div>
+</aside>
+
+			</div>
+	</section>
+<div class="spaa-container d-flex d-md-none d-flex justify-content-center no-bg no-label"
+	style="">
+		<div class="spaa-item"><div id="middle-page-1-mobile" class=" mt-3 mb-3 " >
+<script type="rocketlazyloadscript">
+if (window?.screen?.width <= 768) { // mobile
+window.uolads.push({ id: "middle-page-1-mobile" });
+}</script>
+</div></div></div>
+		<div class="spaa-container-shortcode  container-fluid px-0 d-flex justify-content-center  no-bg no-label"
+	style="">
+		
+<section class="pt-5 bg-gradient-tertiary-e section-list-streaming w-100 overflow-hidden">
+	<div class="container px-4 px-xl-9 px-lg-7 position-relative h-100">
+		<div class="row mx-0 justify-content-end">
+			<div class="list-streaming-image">
+									<img width="555" height="580" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20555%20580'%3E%3C/svg%3E" class="img-fluid" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=555&amp;height=580&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/streaming-banner.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=555&amp;height=580&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/streaming-banner.png" /><noscript><img width="555" height="580" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=555&amp;height=580&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/streaming-banner.png" class="img-fluid" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=555&amp;height=580&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/streaming-banner.png 1200w" sizes="100vw" /></noscript>							</div>
+			<div class="col-lg-8 px-0 mb-lg-7 mb-4">
+				<p class="list-streaming-title heading-title-lg text-white text-opacity-90 mb-0">
+					Escolha o Streaming e tenha acesso aos lançamentos, notícias e a nossas indicações do que assistir em cada um deles.				</p>
+			</div>
+			<div class="col-lg-5 px-0 list-streamings overflow-lg-hidden mb-xl-8 mb-lg-6">
+				<p class="feed-excert-lg mb-xl-4 mb-4 text-uppercase text-center position-relative">
+					SELECIONE O STREAMING				</p>
+				<div class="grid p-3 justify-content-center d-none d-md-grid">
+																		<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/netflix" title="Netflix">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/prime-video" title="Prime Video">
+									<img width="554" height="554" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20554%20554'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="Prime video" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg" /><noscript><img width="554" height="554" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg" class="img-fluid ratio-1x1 fit-contain" alt="Prime video" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/paramount" title="Paramount+">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/star" title="Star+">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/disney" title="Disney+">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/apple-tv" title="Apple TV+">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/hbo-max" title="HBO Max">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+													<div class="g-col-lg-3 g-col-md-2 g-col-4">
+								<a class="d-block" href="/globoplay" title="Globoplay">
+									<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png 1200w" sizes="100vw" /></noscript>								</a>
+							</div>
+															</div>
+				<div class="list-scroll-streamings d-block d-md-none">
+					<ul class="d-flex d-md-none list-unstyled">
+																					<li>
+									<a class="d-block" href="/netflix" title="Netflix">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/01.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/prime-video" title="Prime Video">
+										<img width="554" height="554" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20554%20554'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="Prime video" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg" /><noscript><img width="554" height="554" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg" class="img-fluid ratio-1x1 fit-contain" alt="Prime video" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=554&amp;height=554&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/09/IMG_8909.jpeg 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/paramount" title="Paramount+">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/07.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/star" title="Star+">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/08.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/disney" title="Disney+">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/04.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/apple-tv" title="Apple TV+">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/05.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/hbo-max" title="HBO Max">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/02.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+															<li>
+									<a class="d-block" href="/globoplay" title="Globoplay">
+										<img width="209" height="209" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%20209'%3E%3C/svg%3E" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png" /><noscript><img width="209" height="209" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png" class="img-fluid ratio-1x1 fit-contain" alt="" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=209&amp;height=209&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/08/06.png 1200w" sizes="100vw" /></noscript>									</a>
+								</li>
+																		</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
+		<div class="spaa-container d-none d-md-flex d-flex justify-content-center"
+	style="">
+		<div class="spaa-item"><div id="middle-page-1-desktop" class="  mt-5 mb-3" >
+<script type="rocketlazyloadscript">
+if (window?.screen?.width > 768) { // desktop
+window.uolads.push({ id: "middle-page-1-desktop" });
+}</script>
+</div></div></div>
+		
+<section class="grid related-posts container-xl px-4 px-xl-0 my-9" >
+		
+<div class="g-col-12 grid section-heading-default heading-size-md ">
+	<div class="g-col-12 px-4 pb-3 pb-lg-4 heading-section rounded d-flex justify-content-between align-items-center gap-2">
+		<p class="mb-0 text-uppercase heading-title-md">
+			Veja também		</p>
+				<a href="https://observatoriodocinema.uol.com.br/indicacoes/" class="text-decoration-none button-default-md d-none d-md-flex" title="Veja também">
+			Mais notícias			<i class="bi bi-plus-lg ms-2"></i>
+		</a>
+		<a href="https://observatoriodocinema.uol.com.br/indicacoes/" class="text-decoration-none button-default-md d-flex d-md-none" title="Veja também">
+			<i class="bi bi-plus-lg"></i>
+		</a>
+			</div>
+</div>
+	<div class="g-col-12 row">
+		<div class="grid g-col-12 col-12 col-md-8">
+			
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/filmes/8-filmes-com-finais-que-vao-te-deixar-perturbado/" title="8 filmes com finais que vão te deixar perturbado">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Réquiem para um Sonho" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho.jpg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho.jpg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Réquiem para um Sonho" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/requiem-para-um-sonho.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Angustiantes</p>			<h2 class="feed-title feed-title-lg">8 filmes com finais que vão te deixar perturbado</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">Finais que são verdadeiros socos no estômago</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/indicacoes/baseada-em-historia-real-essa-serie-do-star-vai-te-deixar-fascinado-e-revoltado/" title="Baseada em história real, essa série do Star+ vai te deixar fascinado e revoltado">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O elenco de Bem-Vindos ao Clube da Sedução" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1.jpg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1.jpg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O elenco de Bem-Vindos ao Clube da Sedução" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/bem-vindos-ao-clube-da-seducao-1.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Muito tensa</p>			<h2 class="feed-title feed-title-lg">Baseada em história real, essa série do Star+ vai te deixar fascinado e revoltado</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">Uma minissérie sobre como o poder corrompe</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/streaming/prime-video/os-filmes-mais-vistos-da-historia-do-prime-video/" title="Os filmes mais vistos da história do Prime Vídeo">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O Poderoso Chefão é um dos filmes mais aclamados da História" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O Poderoso Chefão é um dos filmes mais aclamados da História" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/01/o-poderoso-chefao-1200x900-1.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Ótimas pedidas</p>			<h2 class="feed-title feed-title-lg">Os filmes mais vistos da história do Prime Vídeo</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">10 filmes mais vistos da plataforma de streaming</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/filmes/6-atores-que-desmaiaram-no-meio-das-filmagens/" title="6 atores que desmaiaram no meio das filmagens">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Bryce Dallas Howard teve papel importante em todos os filmes de Jurassic World" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Bryce Dallas Howard teve papel importante em todos os filmes de Jurassic World" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2022/09/jurassic-world-dominion-2512-opt.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Perigoso</p>			<h2 class="feed-title feed-title-lg">6 atores que desmaiaram no meio das filmagens</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">Momentos tensos nos sets de filmagem</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/indicacoes/um-dos-melhores-filmes-do-ano-esta-no-paramount-e-vai-conquistar-fas-de-fantasia/" title="Um dos melhores filmes do ano está no Paramount+ e vai conquistar fãs de fantasia">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Dungeons &amp; Dragons: Honra entre Rebeldes está no Paramount+" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5-768x432.jpeg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5.jpeg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5.jpeg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5.jpeg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="Dungeons &amp; Dragons: Honra entre Rebeldes está no Paramount+" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5-768x432.jpeg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/Dungeons-e-Dragons-5.jpeg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Imperdível</p>			<h2 class="feed-title feed-title-lg">Um dos melhores filmes do ano está no Paramount+ e vai conquistar fãs de fantasia</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">Saiba tudo sobre a trama, elenco de Dungeons &amp; Dragons: Honra Entre Rebeldes e veja o trailer do filme</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+
+<article class="feed feed-lg-v1 g-col-12 ">
+	<a class="feed-link hover" href="https://observatoriodocinema.uol.com.br/indicacoes/intrigante-ficcao-cientifica-do-apple-tv-vai-te-deixar-emocionado/" title="Intrigante ficção científica do Apple TV+ vai te deixar emocionado">
+		<figure class="feed-figure hover-overlay">
+			<img width="324" height="222" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20222'%3E%3C/svg%3E" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O Canto do Cisne" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1.jpg 1200w" data-lazy-sizes="100vw" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1.jpg" /><noscript><img width="324" height="222" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1.jpg" class="aspect-16x9 aspect-md-16x11 h-auto fit-cover" alt="O Canto do Cisne" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=182&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1-768x432.jpg 768w, https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=324&amp;height=222&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/10/o-canto-do-cisne-1.jpg 1200w" sizes="100vw" /></noscript>			<p class="feed-title-sm" aria-label="hidden"><i class="feed-icon bi"></i>Ver mais</p>
+		</figure>
+		<div class="feed-body">
+			<p class="post-hat-feed-lg feed-hat">Imperdível</p>			<h2 class="feed-title feed-title-lg">Intrigante ficção científica do Apple TV+ vai te deixar emocionado</h2>
+			<div class="feed-hook">
+							</div>
+			<p class="feed-excert feed-excert-lg line-clamp-3">Mahershala Ali e Naomie Harris estrelam drama do Apple TV+</p>
+			<div class="feed-hook-end">
+							</div>
+		</div>
+	</a>
+</article>
+					</div>
+				<!-- Custom side column -->
+		<div class="col-md-3 offset-md-1 grid">
+			<div class="spaa-container d-none d-md-flex d-flex justify-content-center no-bg no-label"
+	style="">
+		<div class="spaa-item"><div id="aside-2-desktop" class=" mt-3 mb-3 " >
+<script type="rocketlazyloadscript">
+if (window?.screen?.width > 768) { // desktop
+window.uolads.push({ id: "aside-2-desktop" });
+}</script>
+</div></div></div>
+				</div>
+			</div>
+	</section>
+
+</main>
+<div class="spaa-container d-flex d-md-none d-flex justify-content-center no-bg no-label"
+	style="">
+		<div class="spaa-item"><div id="middle-page-3-mobile" class="  mt-3 mb-3" >
+<script type="rocketlazyloadscript">
+if (window?.screen?.width <= 768) { // mobile
+window.uolads.push({ id: "middle-page-3-mobile" });
+}</script>
+</div></div></div>
+		
+
+
+<!-- Footer -->
+
+
+<footer class="footer pt-lg-9 pb-12">
+	<div class="">
+		<div class="grid gap-0 footer-top align-items-center">
+			<div class="col-content-footer g-col-12 g-col-md-3">
+				<div class=" footer-logo d-flex flex-column flex-md-row align-items-center gap-2 px-md-0">
+					<a href="https://observatoriodocinema.uol.com.br/" class="custom-logo-link" title="Página inicial" rel="home"><img width="342" height="88" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20342%2088'%3E%3C/svg%3E" class="custom-logo" alt="Observatório do Cinema" decoding="async" data-lazy-srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1.png 342w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1-300x77.png 300w" data-lazy-sizes="(max-width: 342px) 100vw, 342px" data-lazy-src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=342&amp;height=88&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal-1.png" /><noscript><img width="342" height="88" src="https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=342&amp;height=88&amp;format=webp&amp;quality=91&amp;imagick=/wp-content/uploads/2023/06/logo-company-horizontal-1.png" class="custom-logo" alt="Observatório do Cinema" decoding="async" srcset="https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1.png 342w, https://observatoriodocinema.uol.com.br/wp-content/uploads/2023/06/logo-company-horizontal-1-300x77.png 300w" sizes="(max-width: 342px) 100vw, 342px" /></noscript></a>				</div>
+				<div class="footer-widget-left  d-none d-md-flex flex-column flex-wrap flex-md-row align-items-center justify-content-start gap-2 px-0">
+											<section id="block-3" class="widget widget_block widget_text">
+<p>Dos documentários, filmes, séries e quadrinhos, nossa missão é trazer informação e sugestões do que assistir, seja no cinema, na tv ou no streaming.</p>
+</section>														</div>
+				<div class="footer-widget-right  d-none d-md-flex flex-wrap flex-column flex-md-row align-items-center mt-md-7	 gap-2 px-4 px-md-0">
+										<div class="social-media-links d-flex">
+	<ul class="d-flex justify-content-end gap-3 align-items-center list-unstyled m-0">
+						<li>
+					<a target="_blank" rel="noreferrer" href="https://twitter.com/ObsCinema" class="d-flex" title="Acessar Twitter">
+						<svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.6008 2.11803C19.8725 2.44316 19.0891 2.66306 18.2675 2.76127C19.1063 2.25528 19.7501 1.45465 20.054 0.499094C19.269 0.967877 18.3993 1.30795 17.4744 1.49125C16.7334 0.696734 15.6776 0.200195 14.5085 0.200195C12.2655 0.200195 10.4463 2.03171 10.4463 4.28992C10.4463 4.61048 10.4824 4.92249 10.552 5.222C7.17599 5.0515 4.18258 3.42342 2.17889 0.948357C1.82929 1.55225 1.62873 2.25528 1.62873 3.00466C1.62873 4.42321 2.34642 5.67553 3.43581 6.40875C2.77024 6.3877 2.14344 6.20379 1.59602 5.89666C1.59571 5.91404 1.59571 5.93142 1.59571 5.9485C1.59571 7.93008 2.99654 9.58287 4.85451 9.95832C4.514 10.0523 4.1544 10.102 3.7845 10.102C3.52215 10.102 3.26798 10.0767 3.02017 10.0291C3.537 11.6535 5.03689 12.836 6.81488 12.8692C5.42436 13.9663 3.67302 14.6199 1.7693 14.6199C1.44212 14.6199 1.11797 14.6007 0.800781 14.5626C2.59756 15.7234 4.73333 16.4002 7.02725 16.4002C14.4991 16.4002 18.5853 10.1685 18.5853 4.76359C18.5853 4.58638 18.5813 4.40979 18.5735 4.23472C19.3678 3.65827 20.0564 2.93817 20.6008 2.11803Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.instagram.com/observatoriodocinema/" class="d-flex" title="Acessar Instagram">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.0004 0.399902C12.6087 0.399902 12.9342 0.409502 13.9575 0.457502C14.9799 0.505502 15.6759 0.665822 16.2884 0.903902C16.922 1.14774 17.4558 1.47798 17.9895 2.01078C18.4777 2.49068 18.8554 3.07119 19.0964 3.7119C19.3335 4.32342 19.4948 5.02038 19.5428 6.04278C19.5879 7.06614 19.6004 7.39158 19.6004 9.9999C19.6004 12.6082 19.5908 12.9337 19.5428 13.957C19.4948 14.9794 19.3335 15.6754 19.0964 16.2879C18.8561 16.929 18.4783 17.5096 17.9895 17.989C17.5095 18.477 16.929 18.8547 16.2884 19.0959C15.6769 19.333 14.9799 19.4943 13.9575 19.5423C12.9342 19.5874 12.6087 19.5999 10.0004 19.5999C7.39207 19.5999 7.06663 19.5903 6.04327 19.5423C5.02087 19.4943 4.32487 19.333 3.71239 19.0959C3.07142 18.8554 2.49082 18.4776 2.01127 17.989C1.52302 17.5092 1.14528 16.9287 0.904391 16.2879C0.666311 15.6764 0.505991 14.9794 0.457991 13.957C0.412871 12.9337 0.400391 12.6082 0.400391 9.9999C0.400391 7.39158 0.409991 7.06614 0.457991 6.04278C0.505991 5.01942 0.666311 4.32438 0.904391 3.7119C1.14462 3.07079 1.52244 2.49013 2.01127 2.01078C2.49095 1.52236 3.07152 1.1446 3.71239 0.903902C4.32487 0.665822 5.01991 0.505502 6.04327 0.457502C7.06663 0.412382 7.39207 0.399902 10.0004 0.399902ZM10.0004 5.1999C8.72735 5.1999 7.50645 5.70562 6.60628 6.60579C5.7061 7.50596 5.20039 8.72686 5.20039 9.9999C5.20039 11.2729 5.7061 12.4938 6.60628 13.394C7.50645 14.2942 8.72735 14.7999 10.0004 14.7999C11.2734 14.7999 12.4943 14.2942 13.3945 13.394C14.2947 12.4938 14.8004 11.2729 14.8004 9.9999C14.8004 8.72686 14.2947 7.50596 13.3945 6.60579C12.4943 5.70562 11.2734 5.1999 10.0004 5.1999ZM16.2404 4.9599C16.2404 4.64164 16.114 4.33642 15.8889 4.11137C15.6639 3.88633 15.3587 3.7599 15.0404 3.7599C14.7221 3.7599 14.4169 3.88633 14.1919 4.11137C13.9668 4.33642 13.8404 4.64164 13.8404 4.9599C13.8404 5.27816 13.9668 5.58339 14.1919 5.80843C14.4169 6.03347 14.7221 6.1599 15.0404 6.1599C15.3587 6.1599 15.6639 6.03347 15.8889 5.80843C16.114 5.58339 16.2404 5.27816 16.2404 4.9599ZM10.0004 7.1199C10.7642 7.1199 11.4968 7.42333 12.0369 7.96343C12.577 8.50354 12.8804 9.23608 12.8804 9.9999C12.8804 10.7637 12.577 11.4963 12.0369 12.0364C11.4968 12.5765 10.7642 12.8799 10.0004 12.8799C9.23657 12.8799 8.50403 12.5765 7.96392 12.0364C7.42382 11.4963 7.12039 10.7637 7.12039 9.9999C7.12039 9.23608 7.42382 8.50354 7.96392 7.96343C8.50403 7.42333 9.23657 7.1199 10.0004 7.1199Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.facebook.com/ObservatorioDoCinema" class="d-flex" title="Acessar Facebook">
+						<svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0008 0C5.36756 0 0.800781 4.58587 0.800781 10.2427C0.800781 15.3162 4.4781 19.5179 9.29968 20.3316V12.3796H6.83912V9.51802H9.29968V7.408C9.29968 4.95976 10.7888 3.62562 12.964 3.62562C14.0058 3.62562 14.9011 3.70357 15.161 3.7379V6.29696L13.6523 6.2977C12.4696 6.2977 12.2416 6.86195 12.2416 7.69025V9.51655H15.0636L14.6956 12.3781H12.2416V20.4C17.2883 19.7832 21.2008 15.4745 21.2008 10.2398C21.2008 4.58587 16.634 0 11.0008 0Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCtZeQR-4AN6LCNBT1hpNadw" class="d-flex" title="Acessar Youtube">
+						<svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.4464 25.0908C28.6261 24.7731 29.5564 23.8433 29.8739 22.6636C30.464 20.509 30.4413 16.0177 30.4413 16.0177C30.4413 16.0177 30.4413 11.5494 29.8741 9.39455C29.5564 8.21512 28.6264 7.28507 27.4464 6.96763C25.2911 6.40039 16.6699 6.40039 16.6699 6.40039C16.6699 6.40039 8.07113 6.40039 5.89329 6.9901C4.71338 7.30776 3.78332 8.23781 3.46559 9.41724C2.89844 11.5494 2.89844 16.0404 2.89844 16.0404C2.89844 16.0404 2.89844 20.509 3.46559 22.6636C3.78311 23.8431 4.73607 24.7958 5.89308 25.1132C8.04843 25.6805 16.6697 25.6805 16.6697 25.6805C16.6697 25.6805 25.2911 25.6805 27.4464 25.0908ZM20.9552 16.0411L13.9164 11.9096V20.1725L20.9552 16.0411Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="/feed" class="d-flex" title="Acessar Feed">
+						<svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.89922 0.199219C3.05053 0.199219 2.23659 0.536361 1.63648 1.13648C1.03636 1.73659 0.699219 2.55053 0.699219 3.39922L0.699219 22.5992C0.699219 23.4479 1.03636 24.2618 1.63648 24.862C2.23659 25.4621 3.05053 25.7992 3.89922 25.7992H23.0992C23.9479 25.7992 24.7618 25.4621 25.362 24.862C25.9621 24.2618 26.2992 23.4479 26.2992 22.5992V3.39922C26.2992 2.55053 25.9621 1.73659 25.362 1.13648C24.7618 0.536361 23.9479 0.199219 23.0992 0.199219L3.89922 0.199219ZM6.29922 4.19922C15.136 4.19922 22.2992 11.3624 22.2992 20.1992C22.2992 20.6236 22.1306 21.0305 21.8306 21.3306C21.5305 21.6306 21.1236 21.7992 20.6992 21.7992C20.2749 21.7992 19.8679 21.6306 19.5678 21.3306C19.2678 21.0305 19.0992 20.6236 19.0992 20.1992C19.0992 16.8044 17.7507 13.5487 15.3502 11.1483C12.9497 8.74779 9.69399 7.39922 6.29922 7.39922C5.87487 7.39922 5.46791 7.23065 5.16785 6.93059C4.86779 6.63053 4.69922 6.22357 4.69922 5.79922C4.69922 5.37487 4.86779 4.96791 5.16785 4.66785C5.46791 4.36779 5.87487 4.19922 6.29922 4.19922ZM6.29922 10.5992C8.8453 10.5992 11.2871 11.6106 13.0874 13.411C14.8878 15.2113 15.8992 17.6531 15.8992 20.1992C15.8992 20.6236 15.7306 21.0305 15.4306 21.3306C15.1305 21.6306 14.7236 21.7992 14.2992 21.7992C13.8749 21.7992 13.4679 21.6306 13.1678 21.3306C12.8678 21.0305 12.6992 20.6236 12.6992 20.1992C12.6992 18.5018 12.0249 16.874 10.8247 15.6737C9.62447 14.4735 7.9966 13.7992 6.29922 13.7992C5.87487 13.7992 5.46791 13.6306 5.16785 13.3306C4.86779 13.0305 4.69922 12.6236 4.69922 12.1992C4.69922 11.7749 4.86779 11.3679 5.16785 11.0678C5.46791 10.7678 5.87487 10.5992 6.29922 10.5992ZM7.09922 21.7992C6.4627 21.7992 5.85225 21.5464 5.40216 21.0963C4.95208 20.6462 4.69922 20.0357 4.69922 19.3992C4.69922 18.7627 4.95208 18.1523 5.40216 17.7022C5.85225 17.2521 6.4627 16.9992 7.09922 16.9992C7.73574 16.9992 8.34619 17.2521 8.79628 17.7022C9.24636 18.1523 9.49922 18.7627 9.49922 19.3992C9.49922 20.0357 9.24636 20.6462 8.79628 21.0963C8.34619 21.5464 7.73574 21.7992 7.09922 21.7992Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+					</ul>
+</div>
+				</div>
+			</div>
+			<div class="g-col-12 g-col-md-9 ps-xl-10 col-menu-footer">
+				<nav class="g-col-12 footer-navigation mt-3 mt-md-0 px-0 px-md-0">
+					<div class="menu-links"><ul><li><a title = "Editorias" href="/">Editorias</a>
+<ul>
+<li><span>Row</span>
+	<ul>
+<li><span>Col</span>
+		<ul>
+<li><a title = "Filmes" href="https://observatoriodocinema.uol.com.br/filmes/">Filmes</a></li>
+<li><a title = "Séries" href="https://observatoriodocinema.uol.com.br/series/">Séries</a></li>
+<li><a title = "Documentários" href="https://observatoriodocinema.uol.com.br/documentarios/">Documentários</a></li>
+<li><a title = "Quadrinhos" href="https://observatoriodocinema.uol.com.br/quadrinhos/">Quadrinhos</a></li>
+<li><a title = "Animes" href="https://observatoriodocinema.uol.com.br/animes/">Animes</a></li>
+		</ul>
+</li>
+<li><span>Col</span>
+		<ul>
+<li><a title = "Celebridades" href="https://observatoriodocinema.uol.com.br/celebridades/">Celebridades</a></li>
+<li><a title = "Premiações" href="https://observatoriodocinema.uol.com.br/premiacoes/">Premiações</a></li>
+<li><a title = "Games" href="https://observatoriodocinema.uol.com.br/games/">Games</a></li>
+<li><a title = "DC" href="https://observatoriodocinema.uol.com.br/studio/dc/">DC</a></li>
+<li><a title = "Marvel" href="https://observatoriodocinema.uol.com.br/studio/marvel/">Marvel</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+<li><a title = "Streamings" href="https://observatoriodocinema.uol.com.br/streaming/">Streamings</a>
+<ul>
+<li><span>Row</span>
+	<ul>
+<li><span>Col</span>
+		<ul>
+<li><a title = "Apple TV+" href="https://observatoriodocinema.uol.com.br/streaming/apple-tv-plus/">Apple TV+</a></li>
+<li><a title = "Disney+" href="https://observatoriodocinema.uol.com.br/streaming/disney-plus/">Disney+</a></li>
+<li><a title = "Globoplay" href="https://observatoriodocinema.uol.com.br/streaming/globoplay/">Globoplay</a></li>
+<li><a title = "HBO Max" href="https://observatoriodocinema.uol.com.br/streaming/hbo-max/">HBO Max</a></li>
+<li><a title = "Netflix" href="https://observatoriodocinema.uol.com.br/streaming/netflix/">Netflix</a></li>
+		</ul>
+</li>
+<li><span>Col</span>
+		<ul>
+<li><a title = "Paramount+" href="https://observatoriodocinema.uol.com.br/streaming/paramount-plus/">Paramount+</a></li>
+<li><a title = "Prime Video" href="https://observatoriodocinema.uol.com.br/streaming/prime-video/">Prime Video</a></li>
+<li><a title = "Star+" href="https://observatoriodocinema.uol.com.br/streaming/star-plus/">Star+</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+<li><a title = "Outros sites do grupo" href="/">Outros sites do grupo</a>
+<ul>
+<li><span>Row</span>
+	<ul>
+<li><span>Col</span>
+		<ul>
+<li><a title = "Observatório da TV" href="https://observatoriodatv.uol.com.br/">Observatório da TV</a></li>
+<li><a title = "Observatório dos Famosos" href="https://observatoriodosfamosos.uol.com.br/">Observatório dos Famosos</a></li>
+<li><a title = "Observatório G" href="https://observatoriog.bol.uol.com.br/">Observatório G</a></li>
+<li><a title = "Observatório de Games" href="https://observatoriodegames.uol.com.br/">Observatório de Games</a></li>
+<li><a title = "Observatório do Teatro" href="https://observatoriodoteatro.uol.com.br/">Observatório do Teatro</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div>				</nav>
+				<div class="d-block d-md-none">
+				<div class="g-col-12 g-col-md-3">
+				<div class="footer-widget-left d-flex text-center flex-column flex-wrap flex-md-row align-items-center justify-content-start gap-2 px-md-4 px-md-0">
+											<section id="block-3" class="widget widget_block widget_text">
+<p>Dos documentários, filmes, séries e quadrinhos, nossa missão é trazer informação e sugestões do que assistir, seja no cinema, na tv ou no streaming.</p>
+</section>														</div>
+				<div class="footer-widget-right d-flex flex-wrap flex-column flex-md-row align-items-center mt-md-7	mt-6 gap-2 px-4 px-md-0">
+										<div class="social-media-links d-flex">
+	<ul class="d-flex justify-content-end gap-3 align-items-center list-unstyled m-0">
+						<li>
+					<a target="_blank" rel="noreferrer" href="https://twitter.com/ObsCinema" class="d-flex" title="Acessar Twitter">
+						<svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.6008 2.11803C19.8725 2.44316 19.0891 2.66306 18.2675 2.76127C19.1063 2.25528 19.7501 1.45465 20.054 0.499094C19.269 0.967877 18.3993 1.30795 17.4744 1.49125C16.7334 0.696734 15.6776 0.200195 14.5085 0.200195C12.2655 0.200195 10.4463 2.03171 10.4463 4.28992C10.4463 4.61048 10.4824 4.92249 10.552 5.222C7.17599 5.0515 4.18258 3.42342 2.17889 0.948357C1.82929 1.55225 1.62873 2.25528 1.62873 3.00466C1.62873 4.42321 2.34642 5.67553 3.43581 6.40875C2.77024 6.3877 2.14344 6.20379 1.59602 5.89666C1.59571 5.91404 1.59571 5.93142 1.59571 5.9485C1.59571 7.93008 2.99654 9.58287 4.85451 9.95832C4.514 10.0523 4.1544 10.102 3.7845 10.102C3.52215 10.102 3.26798 10.0767 3.02017 10.0291C3.537 11.6535 5.03689 12.836 6.81488 12.8692C5.42436 13.9663 3.67302 14.6199 1.7693 14.6199C1.44212 14.6199 1.11797 14.6007 0.800781 14.5626C2.59756 15.7234 4.73333 16.4002 7.02725 16.4002C14.4991 16.4002 18.5853 10.1685 18.5853 4.76359C18.5853 4.58638 18.5813 4.40979 18.5735 4.23472C19.3678 3.65827 20.0564 2.93817 20.6008 2.11803Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.instagram.com/observatoriodocinema/" class="d-flex" title="Acessar Instagram">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.0004 0.399902C12.6087 0.399902 12.9342 0.409502 13.9575 0.457502C14.9799 0.505502 15.6759 0.665822 16.2884 0.903902C16.922 1.14774 17.4558 1.47798 17.9895 2.01078C18.4777 2.49068 18.8554 3.07119 19.0964 3.7119C19.3335 4.32342 19.4948 5.02038 19.5428 6.04278C19.5879 7.06614 19.6004 7.39158 19.6004 9.9999C19.6004 12.6082 19.5908 12.9337 19.5428 13.957C19.4948 14.9794 19.3335 15.6754 19.0964 16.2879C18.8561 16.929 18.4783 17.5096 17.9895 17.989C17.5095 18.477 16.929 18.8547 16.2884 19.0959C15.6769 19.333 14.9799 19.4943 13.9575 19.5423C12.9342 19.5874 12.6087 19.5999 10.0004 19.5999C7.39207 19.5999 7.06663 19.5903 6.04327 19.5423C5.02087 19.4943 4.32487 19.333 3.71239 19.0959C3.07142 18.8554 2.49082 18.4776 2.01127 17.989C1.52302 17.5092 1.14528 16.9287 0.904391 16.2879C0.666311 15.6764 0.505991 14.9794 0.457991 13.957C0.412871 12.9337 0.400391 12.6082 0.400391 9.9999C0.400391 7.39158 0.409991 7.06614 0.457991 6.04278C0.505991 5.01942 0.666311 4.32438 0.904391 3.7119C1.14462 3.07079 1.52244 2.49013 2.01127 2.01078C2.49095 1.52236 3.07152 1.1446 3.71239 0.903902C4.32487 0.665822 5.01991 0.505502 6.04327 0.457502C7.06663 0.412382 7.39207 0.399902 10.0004 0.399902ZM10.0004 5.1999C8.72735 5.1999 7.50645 5.70562 6.60628 6.60579C5.7061 7.50596 5.20039 8.72686 5.20039 9.9999C5.20039 11.2729 5.7061 12.4938 6.60628 13.394C7.50645 14.2942 8.72735 14.7999 10.0004 14.7999C11.2734 14.7999 12.4943 14.2942 13.3945 13.394C14.2947 12.4938 14.8004 11.2729 14.8004 9.9999C14.8004 8.72686 14.2947 7.50596 13.3945 6.60579C12.4943 5.70562 11.2734 5.1999 10.0004 5.1999ZM16.2404 4.9599C16.2404 4.64164 16.114 4.33642 15.8889 4.11137C15.6639 3.88633 15.3587 3.7599 15.0404 3.7599C14.7221 3.7599 14.4169 3.88633 14.1919 4.11137C13.9668 4.33642 13.8404 4.64164 13.8404 4.9599C13.8404 5.27816 13.9668 5.58339 14.1919 5.80843C14.4169 6.03347 14.7221 6.1599 15.0404 6.1599C15.3587 6.1599 15.6639 6.03347 15.8889 5.80843C16.114 5.58339 16.2404 5.27816 16.2404 4.9599ZM10.0004 7.1199C10.7642 7.1199 11.4968 7.42333 12.0369 7.96343C12.577 8.50354 12.8804 9.23608 12.8804 9.9999C12.8804 10.7637 12.577 11.4963 12.0369 12.0364C11.4968 12.5765 10.7642 12.8799 10.0004 12.8799C9.23657 12.8799 8.50403 12.5765 7.96392 12.0364C7.42382 11.4963 7.12039 10.7637 7.12039 9.9999C7.12039 9.23608 7.42382 8.50354 7.96392 7.96343C8.50403 7.42333 9.23657 7.1199 10.0004 7.1199Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.facebook.com/ObservatorioDoCinema" class="d-flex" title="Acessar Facebook">
+						<svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0008 0C5.36756 0 0.800781 4.58587 0.800781 10.2427C0.800781 15.3162 4.4781 19.5179 9.29968 20.3316V12.3796H6.83912V9.51802H9.29968V7.408C9.29968 4.95976 10.7888 3.62562 12.964 3.62562C14.0058 3.62562 14.9011 3.70357 15.161 3.7379V6.29696L13.6523 6.2977C12.4696 6.2977 12.2416 6.86195 12.2416 7.69025V9.51655H15.0636L14.6956 12.3781H12.2416V20.4C17.2883 19.7832 21.2008 15.4745 21.2008 10.2398C21.2008 4.58587 16.634 0 11.0008 0Z" fill="white"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCtZeQR-4AN6LCNBT1hpNadw" class="d-flex" title="Acessar Youtube">
+						<svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.4464 25.0908C28.6261 24.7731 29.5564 23.8433 29.8739 22.6636C30.464 20.509 30.4413 16.0177 30.4413 16.0177C30.4413 16.0177 30.4413 11.5494 29.8741 9.39455C29.5564 8.21512 28.6264 7.28507 27.4464 6.96763C25.2911 6.40039 16.6699 6.40039 16.6699 6.40039C16.6699 6.40039 8.07113 6.40039 5.89329 6.9901C4.71338 7.30776 3.78332 8.23781 3.46559 9.41724C2.89844 11.5494 2.89844 16.0404 2.89844 16.0404C2.89844 16.0404 2.89844 20.509 3.46559 22.6636C3.78311 23.8431 4.73607 24.7958 5.89308 25.1132C8.04843 25.6805 16.6697 25.6805 16.6697 25.6805C16.6697 25.6805 25.2911 25.6805 27.4464 25.0908ZM20.9552 16.0411L13.9164 11.9096V20.1725L20.9552 16.0411Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+								<li>
+					<a target="_blank" rel="noreferrer" href="/feed" class="d-flex" title="Acessar Feed">
+						<svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.89922 0.199219C3.05053 0.199219 2.23659 0.536361 1.63648 1.13648C1.03636 1.73659 0.699219 2.55053 0.699219 3.39922L0.699219 22.5992C0.699219 23.4479 1.03636 24.2618 1.63648 24.862C2.23659 25.4621 3.05053 25.7992 3.89922 25.7992H23.0992C23.9479 25.7992 24.7618 25.4621 25.362 24.862C25.9621 24.2618 26.2992 23.4479 26.2992 22.5992V3.39922C26.2992 2.55053 25.9621 1.73659 25.362 1.13648C24.7618 0.536361 23.9479 0.199219 23.0992 0.199219L3.89922 0.199219ZM6.29922 4.19922C15.136 4.19922 22.2992 11.3624 22.2992 20.1992C22.2992 20.6236 22.1306 21.0305 21.8306 21.3306C21.5305 21.6306 21.1236 21.7992 20.6992 21.7992C20.2749 21.7992 19.8679 21.6306 19.5678 21.3306C19.2678 21.0305 19.0992 20.6236 19.0992 20.1992C19.0992 16.8044 17.7507 13.5487 15.3502 11.1483C12.9497 8.74779 9.69399 7.39922 6.29922 7.39922C5.87487 7.39922 5.46791 7.23065 5.16785 6.93059C4.86779 6.63053 4.69922 6.22357 4.69922 5.79922C4.69922 5.37487 4.86779 4.96791 5.16785 4.66785C5.46791 4.36779 5.87487 4.19922 6.29922 4.19922ZM6.29922 10.5992C8.8453 10.5992 11.2871 11.6106 13.0874 13.411C14.8878 15.2113 15.8992 17.6531 15.8992 20.1992C15.8992 20.6236 15.7306 21.0305 15.4306 21.3306C15.1305 21.6306 14.7236 21.7992 14.2992 21.7992C13.8749 21.7992 13.4679 21.6306 13.1678 21.3306C12.8678 21.0305 12.6992 20.6236 12.6992 20.1992C12.6992 18.5018 12.0249 16.874 10.8247 15.6737C9.62447 14.4735 7.9966 13.7992 6.29922 13.7992C5.87487 13.7992 5.46791 13.6306 5.16785 13.3306C4.86779 13.0305 4.69922 12.6236 4.69922 12.1992C4.69922 11.7749 4.86779 11.3679 5.16785 11.0678C5.46791 10.7678 5.87487 10.5992 6.29922 10.5992ZM7.09922 21.7992C6.4627 21.7992 5.85225 21.5464 5.40216 21.0963C4.95208 20.6462 4.69922 20.0357 4.69922 19.3992C4.69922 18.7627 4.95208 18.1523 5.40216 17.7022C5.85225 17.2521 6.4627 16.9992 7.09922 16.9992C7.73574 16.9992 8.34619 17.2521 8.79628 17.7022C9.24636 18.1523 9.49922 18.7627 9.49922 19.3992C9.49922 20.0357 9.24636 20.6462 8.79628 21.0963C8.34619 21.5464 7.73574 21.7992 7.09922 21.7992Z" fill="#E8E8E8"/></svg>					</a>
+				</li>
+					</ul>
+</div>
+				</div>
+			</div>
+				</div>
+			</div>
+		</div>
+		<hr class="mt-6 mt-md-10 mb-4 d-md-block d-none">
+		<div class="footer-bottom d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start px-4 px-md-0">
+			<div class="footer-copyright d-flex gap-9 flex-column flex-md-row justify-content-md-between align-items-center align-items-md-center">
+				<p class="footer-terms text-center text-md-start mb-3 m-md-0">
+					© 2023 Observatório do Cinema				</p>
+				<div class="menu-paginas-obrigatorias-container"><ul><li><a title = "Politica de privacidade" href="/politica-de-privacidade/">Politica de privacidade</a></li>
+<li><a title = "Termos de uso" href="/termos-de-uso/">Termos de uso</a></li>
+<li><a title = "Fale conosco" href="/fale-conosco/">Fale conosco</a></li>
+<li><a title = "Quem somos" href="/quem-somos/">Quem somos</a></li>
+</ul></div>			</div>
+			<a href="https://www.seox.com.br" target="_blank" class="footer-seox" title="Seox">
+				<svg width="49" height="12" viewBox="0 0 49 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g>
+						<path d="M36.9363 6.02857C36.9363 7.07115 36.7462 8.06634 36.2709 8.96675C35.6056 10.2463 34.5601 11.0993 33.2294 11.5732C31.5661 12.1419 29.8552 12.1419 28.1919 11.5258C26.2434 10.815 25.1504 9.34587 24.7702 7.3081C24.5326 6.07596 24.6276 4.84382 25.0078 3.65907C25.5781 2.00042 26.7662 0.910451 28.4295 0.389162C30.1879 -0.179518 31.9463 -0.132128 33.7047 0.578722C35.2729 1.24218 36.2709 2.42693 36.7462 4.08558C36.8888 4.70165 36.9363 5.36511 36.9363 6.02857ZM33.6571 5.98118C33.6571 5.4125 33.5621 4.84382 33.3245 4.36992C32.8492 3.32734 31.7562 2.75866 30.4255 2.90083C29.2849 3.043 28.477 3.61168 28.0968 4.74904C27.8592 5.4125 27.8592 6.07596 27.9543 6.73942C28.1919 8.16112 29.2374 9.06153 30.7107 9.10892C31.7562 9.10892 32.6116 8.77719 33.1819 7.87678C33.5621 7.3081 33.6571 6.64464 33.6571 5.98118Z" fill="black" />
+						<path d="M15.0308 7.07108C15.0308 7.59237 15.3159 7.97149 15.6486 8.30322C16.2664 8.8245 16.9792 8.96667 17.7396 9.01406C18.5475 9.06145 19.3079 8.96667 20.0208 8.68233C20.2584 8.58755 20.5435 8.54016 20.7812 8.49277C21.3039 8.44538 21.7792 8.58755 22.0643 9.01406C22.3494 9.48796 22.3494 9.96186 22.1118 10.4358C21.8267 11.0518 21.2564 11.3362 20.6386 11.5731C19.4505 11.9522 18.2149 11.9996 16.9792 11.8575C16.0763 11.7627 15.2684 11.5257 14.4605 11.0992C13.2249 10.4358 12.417 9.44057 12.0368 8.11366C11.5615 6.59718 11.5615 5.03331 12.1318 3.51683C12.8922 1.52645 14.3654 0.436481 16.4565 0.104752C17.5971 -0.0848081 18.7376 0.00997184 19.7831 0.436481C21.3514 1.05255 22.2544 2.2373 22.6346 3.89595C22.7772 4.51202 22.8247 5.0807 22.7772 5.69677C22.6821 6.5024 22.2544 6.92891 21.4465 7.07108C21.2564 7.11847 21.0663 7.11847 20.8762 7.11847C19.0228 7.11847 17.1693 7.11847 15.3159 7.11847C15.2209 7.07108 15.1733 7.07108 15.0308 7.07108ZM15.0308 4.89114C16.5515 4.89114 18.0248 4.89114 19.498 4.89114C19.5931 4.08551 19.3079 3.37466 18.6426 2.99554C17.6921 2.47425 16.3139 2.66381 15.6011 3.46944C15.2209 3.84856 15.0308 4.32246 15.0308 4.89114Z" fill="black" />
+						<path d="M4.81202 11.9526C3.76649 11.9526 2.72097 11.8104 1.72297 11.4313C1.15268 11.1944 0.62992 10.91 0.24973 10.3887C0.0596345 10.057 -0.0354131 9.72527 0.0121107 9.34615C0.0596345 8.73008 0.487349 8.30357 1.10516 8.35096C1.3903 8.35096 1.72297 8.44574 2.00811 8.54052C2.67345 8.77747 3.29125 9.15659 4.00411 9.29876C4.66945 9.44093 5.33478 9.44093 5.95259 9.34615C6.04764 9.34615 6.14268 9.29876 6.23773 9.25137C6.85554 9.01442 6.90307 8.30357 6.3803 7.92445C6.00011 7.6875 5.5724 7.54533 5.14468 7.45055C4.43183 7.2136 3.67145 7.07143 2.95859 6.83448C2.24573 6.59753 1.5804 6.21841 1.05763 5.64973C0.0596346 4.55976 -0.130461 2.14288 1.72297 0.910738C2.48335 0.436838 3.29125 0.199888 4.14668 0.105108C5.28726 0.0103281 6.42783 0.105108 7.47335 0.484228C7.94859 0.673788 8.42383 0.863347 8.85154 1.24247C9.13669 1.47942 9.27926 1.81115 9.32678 2.19027C9.32678 3.04329 8.70897 3.56458 7.80602 3.42241C7.52088 3.32763 7.14069 3.18546 6.80802 3.04329C6.04764 2.75895 5.28726 2.522 4.47935 2.61678C4.3843 2.61678 4.24173 2.61678 4.14668 2.66417C3.86154 2.71156 3.62392 2.85373 3.5764 3.18546C3.48135 3.51719 3.5764 3.80153 3.86154 3.99109C4.24173 4.27543 4.66945 4.32282 5.14468 4.46498C5.81002 4.60715 6.47535 4.74932 7.14069 4.93888C7.61592 5.08105 8.09116 5.27061 8.51888 5.55495C9.3743 6.07624 9.84954 6.83448 9.89707 7.82967C9.99212 8.96703 9.7545 9.96222 8.89907 10.7679C8.32878 11.3365 7.61592 11.6209 6.85554 11.763C6.19021 11.8578 5.52487 11.9052 4.85954 12C4.81202 12 4.81202 11.9526 4.81202 11.9526Z" fill="black" />
+						<path d="M43.7347 3.75343C44.0674 3.32692 44.3525 2.9478 44.6852 2.56868C45.1129 2 45.5881 1.43132 46.0158 0.862638C46.6812 -0.0377713 47.7742 0.104399 48.3445 0.625688C48.9148 1.14698 48.9623 2.09478 48.5346 2.66346C47.6792 3.65865 46.8713 4.70123 46.0634 5.69641C45.9208 5.83858 45.9208 5.93336 46.0634 6.07553C46.9663 7.1655 47.8217 8.20808 48.6772 9.29805C49.1524 9.91412 49.1049 10.8145 48.5346 11.3358C47.9643 11.8571 47.0138 11.8571 46.4911 11.2884C46.0634 10.8145 45.6357 10.2932 45.2079 9.77195C44.7802 9.25066 44.3525 8.72937 43.9248 8.20808C43.8773 8.16069 43.8773 8.1133 43.8297 8.06591C43.6872 8.20808 43.5921 8.30286 43.4971 8.44503C42.7842 9.29805 42.0238 10.1511 41.311 11.0515C40.8833 11.5728 40.3605 11.8571 39.6477 11.7149C38.6021 11.478 38.1744 10.1985 38.8873 9.34544C39.8377 8.20808 40.7407 7.11811 41.6912 5.98075C41.6912 5.93336 41.7387 5.93336 41.7387 5.88597C41.2159 5.2699 40.6932 4.65384 40.1704 3.99038C39.7902 3.56387 39.4576 3.08997 39.0774 2.66346C38.5071 2.04739 38.6497 1.0522 39.1724 0.530908C39.7902 -0.0377713 40.6932 0.00961868 41.2635 0.673078C41.7862 1.28915 42.309 1.90522 42.8317 2.56868C43.1169 2.99519 43.4496 3.37431 43.7347 3.75343Z" fill="black" />
+					</g>
+				</svg>
+			</a>
+		</div>
+	</div>
+</footer>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+console.log('teste');
+</script><script src='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-assets-manager/assets/js/rocket-delay_js-addon.js?ver=1.0.0' id='rocket-delay_js-addon-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-cwv/assets/js/dist/public/cwv.js?ver=1.2.0' id='seox-cwv-tracker-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-publishers-addon-ads/assets/js/dist/single-content/main.js?ver=0.4.0-alpha.13' id='publishers-addon-ads-single-content-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-publishers-addon-social-medias/assets/js/dist/public/main.js?ver=0.3.1' id='publishers-addon-social-medias-js'></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/observatoriodocinema.uol.com.br","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers/assets/js/dist/public/main.js?ver=2.4.0' id='publishers-script-main-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers-child/assets/js/dist/public/main.js?ver=2.1.1' id='publishers-child-script-main-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers/assets/js/dist/public/header.js?ver=2.4.0' id='publishers-script-header-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/themes/seox-theme-publishers/assets/js/dist/public/footer.js?ver=2.4.0' id='publishers-script-footer-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://observatoriodocinema.uol.com.br/wp-content/plugins/seox-publishers-addon-navbars/assets/js/dist/public/main.js?ver=0.2.1' id='publishers-addon-navbars-js'></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://observatoriodocinema.uol.com.br/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+</body>
+
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
