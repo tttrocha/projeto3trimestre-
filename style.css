@@ -7,7 +7,7 @@ body {
 }
 
 .principal{
-	background: #CCCCCC;
+	background: #5a3232;
 	padding: 30px;
 }
 
@@ -28,7 +28,7 @@ p {
 }
 
 em strong {
-	color: #FF0000;
+	color: #442020;
 }
 
 .itens {
@@ -36,7 +36,7 @@ em strong {
 }
 
 .beneficios {
-	background: #FFFFFF;
+	background: #1f0909;
 	padding: 20px;
 }
 
