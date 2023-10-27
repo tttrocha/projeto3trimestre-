@@ -7,7 +7,7 @@ body {
 }
 
 .principal{
-	background: #171817;
+	background: #000000;
 	padding: 30px;
 }
 
@@ -29,7 +29,7 @@ p {
 
 em strong {
 	color: #e0d5d5;
-}
+color: #f5f5f5;
 
 .itens {
 	font-style: italic
